@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 
 const title = "Fallen Lineage Update Notes & Patch History";
-const description = "Browse all Fallen Lineage updates, balance changes, and official patch history in reverse chronological order with links to relevant classes and mechanics.";
+const description = "Track official patch notes and update history for Fallen Lineage on Roblox. Check development updates and view latest changes via the official Trello.";
 const h1 = "Fallen Lineage Updates";
 
 const siblingLinks = [
@@ -24,52 +24,58 @@ const lastUpdatedDate = "November 16, 2026";
     <span class="badge badge-amber">Patch Log</span>
     <h1 style="margin-top: 0.75rem;">{h1}</h1>
     <div class="meta-banner">
-      <span><strong>Archive:</strong> Complete Patch History</span>
+      <span><strong>Archive:</strong> Official Patch History</span>
       <span>&bull;</span>
       <span><strong>Last Synchronized:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      Review all historical updates, balance adjustments, hotfixes, and content expansions for <strong>Fallen Lineage</strong> on Roblox in reverse chronological order.
+      Review historical update notices, balance adjustments, and patch changes for <strong>Fallen Lineage</strong> on Roblox.
     </p>
   </div>
 
   <section>
-    <h2>Update v1.0.4 – November 2026</h2>
-    <div class="callout callout-info">
-      <p style="margin-bottom: 0.25rem;"><strong>Patch Status:</strong> Live on all Roblox game servers</p>
-      <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-muted);">Release Date: November 2026</p>
+    <h2>Official Patch Notes Status</h2>
+    <div class="callout callout-info" style="margin-top: 1.5rem; padding: 2rem;">
+      <h3 style="margin-top: 0; font-size: 1.25rem; color: var(--text-primary);">No Official Patch Notes Recorded Yet</h3>
+      <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        The Fallen Lineage development team currently publishes balance tweaks and roadmap announcements directly through their <strong>Official Trello</strong> board and server restart broadcasts, rather than issuing formal numbered patch notes.
+      </p>
+      <p style="margin-bottom: 0;">
+        To avoid misinforming players with unverified patch claims, we do not log speculative version numbers. Once formal developer changelogs are published, they will be archived here chronologically.
+      </p>
     </div>
-    <ul>
-      <li><strong>Class Balance:</strong> Readjusted mana consumption curves for high-tier elemental spells. See updated analysis in our <a href="/tier-list">Class Tier List</a>.</li>
-      <li><strong>Solo Progression:</strong> Tuned enemy health thresholds in early dungeon chambers to improve the new player experience. Check our <a href="/guides/beginner">Beginner Guide</a> for updated route paths.</li>
-      <li><strong>Reward Codes:</strong> Released new community celebration codes redeemable on our <a href="/codes">Roblox Codes</a> page.</li>
-      <li><strong>Bug Fixes:</strong> Fixed an initiative gauge issue where dual-wielding characters occasionally skipped turn calculations.</li>
-    </ul>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Update v1.0.3 – November 2026</h2>
-    <div class="callout">
-      <p style="margin-bottom: 0.25rem;"><strong>Patch Status:</strong> Archived Release</p>
-      <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-muted);">Release Date: Early November 2026</p>
+    <h2>Where to Track Live Development</h2>
+    <p>
+      While formal patch logs remain unreleased, you can track real-time game changes using the following community hubs:
+    </p>
+
+    <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--accent-amber-light);">1. Official Trello Cards</h3>
+        <p>Developers update in-progress mechanics, balance experiments, and bug hotfixes directly on Trello.</p>
+        <a href="/trello" class="btn btn-secondary" style="font-size: 0.85rem;">Access Trello Guide &rarr;</a>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--accent-amber-light);">2. Active Codes & Shutdown Gifts</h3>
+        <p>Developers frequently compensate players for server reboots with Reroll Tokens and extra Lives.</p>
+        <a href="/codes" class="btn btn-secondary" style="font-size: 0.85rem;">Check Active Codes &rarr;</a>
+      </div>
     </div>
-    <ul>
-      <li><strong>Classes Expansion:</strong> Introduced tier-2 mastery nodes for Vanguard and Cleric paths. Read full details in our <a href="/classes">Classes Guide</a>.</li>
-      <li><strong>Trello Reorganization:</strong> Developers overhauled their public planning boards with detailed item drop lists. See how to read it on our <a href="/trello">Trello Directory</a>.</li>
-      <li><strong>Performance:</strong> Optimized network serialization to reduce lag spikes in multiplayer dungeon rooms.</li>
-    </ul>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Update v1.0.2 – October 2026</h2>
-    <div class="callout">
-      <p style="margin-bottom: 0.25rem;"><strong>Patch Status:</strong> Foundation Milestone</p>
-      <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-muted);">Release Date: Late October 2026</p>
-    </div>
+    <h2>Class & Progression Reference</h2>
+    <p>
+      Need to verify current class mechanics or check our testing methodology?
+    </p>
     <ul>
-      <li>Initial public release of the core roguelite turn-based dungeon crawl system on Roblox.</li>
-      <li>Launched four foundational class archetypes with unique turn commands.</li>
-      <li>Implemented the starter sanctuary redemption kiosk and beginner talent tree.</li>
+      <li>Read through our 6 archetype breakdowns on the <a href="/classes">Classes Guide</a>.</li>
+      <li>Check testing status and benchmark criteria on the <a href="/tier-list">Tier List</a>.</li>
+      <li>Review beginner survival strategies in our <a href="/guides/beginner">Beginner Guide</a>.</li>
     </ul>
   </section>
 </Base>

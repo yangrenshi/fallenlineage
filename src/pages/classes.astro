@@ -2,16 +2,55 @@
 import Base from '../layouts/Base.astro';
 
 const title = "Fallen Lineage Classes – All Classes & How They Play";
-const description = "Complete Fallen Lineage class overview detailing playstyles, weapon affinities, core mechanics, and difficulty ratings for every available character path.";
+const description = "Discover all 6 Fallen Lineage classes: Warrior, Rogue, Mage, Lancer, Bard, and Archer. Explore detailed playstyles, roles, and character archetypes.";
 const h1 = "Fallen Lineage Classes";
 
 const siblingLinks = [
-  { title: "Class Tier List", href: "/tier-list", desc: "Comparative meta evaluation from S to B tier." },
+  { title: "Class Tier List", href: "/tier-list", desc: "Comparative evaluation framework and tier list." },
   { title: "Beginner Guide", href: "/guides/beginner", desc: "First hour tips, turn order, and currency guide." },
   { title: "Roblox Codes", href: "/codes", desc: "Redeem codes for free class rerolls and gems." }
 ];
 
 const lastUpdatedDate = "November 16, 2026";
+
+const classesList = [
+  {
+    name: "Warrior",
+    role: "Frontline Tank / Melee Brawler",
+    style: "Specializes in high physical durability, guarding stances, and counter-attacks. Absorbs heavy blows to protect party members and grind down opposing mobs.",
+    bestFor: "Players who prefer dependable survivability, forgiving margins, and direct melee combat."
+  },
+  {
+    name: "Rogue",
+    role: "Agile Assassin / Single-Target DPS",
+    style: "Focuses on speed, evasion, and rapid multi-hit strikes. Builds combo rhythm to execute high-impact critical hits against priority targets before they can retaliate.",
+    bestFor: "Tacticians who enjoy fast turn rotations, risk-reward timing, and single-target boss bursting."
+  },
+  {
+    name: "Mage",
+    role: "Ranged Caster / AoE Damage",
+    style: "Channels elemental spells to hit multiple enemy targets at once. Offers superior room-clearing capabilities balanced by lower baseline physical defense.",
+    bestFor: "Players focused on sweeping mob waves efficiently and exploiting elemental weaknesses."
+  },
+  {
+    name: "Lancer",
+    role: "Piercing Fighter / Mid-Range Melee",
+    style: "Utilizes polearm thrusts with extended reach. Balances offensive piercing pressure with defensive positioning, breaking through enemy armor ratings.",
+    bestFor: "Fighters who want a balance of offensive reach, crowd control stabs, and sturdy resilience."
+  },
+  {
+    name: "Bard",
+    role: "Party Buffer / Turn Support",
+    style: "Enhances team performance through melody buffs, initiative manipulation, and stat boosts. Keeps teammates acting faster and recovering between intense rounds.",
+    bestFor: "Co-op players and strategists who excel at buff management and party force multiplication."
+  },
+  {
+    name: "Archer",
+    role: "Ranged Marksman / Physical DPS",
+    style: "Delivers precision ranged attacks with bows and arrows. Keeps distance from lethal melee boss strikes while continuously applying steady physical damage.",
+    bestFor: "Players who enjoy kiting mechanics, steady ranged physical DPS, and safe distance engagement."
+  }
+];
 ---
 
 <Base
@@ -24,86 +63,50 @@ const lastUpdatedDate = "November 16, 2026";
     <span class="badge badge-amber">Character Guide</span>
     <h1 style="margin-top: 0.75rem;">{h1}</h1>
     <div class="meta-banner">
-      <span><strong>Scope:</strong> Core Progression & Archetypes</span>
+      <span><strong>Archetypes:</strong> 6 Distinct Classes</span>
       <span>&bull;</span>
-      <span><strong>Updated:</strong> {lastUpdatedDate}</span>
+      <span><strong>Verified:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      Discover all available character classes in <strong>Fallen Lineage</strong>. Each archetype features unique turn-based ability kits, equipment scaling, and playstyles suited for solo dungeon crawling or party synergy.
+      Discover all 6 character classes in <strong>Fallen Lineage</strong> on Roblox. Each archetype defines your fundamental combat abilities, weapon affinities, and turn-based tactical loop.
     </p>
   </div>
 
   <section>
-    <h2>Class Archetype Overview</h2>
+    <h2>All 6 Classes Breakdown</h2>
     <p>
-      Your class defines your role inside the tactical turn-based battle system. Below is a detailed breakdown of each major path:
+      Explore the verified roster of classes currently available in the game:
     </p>
 
     <div class="grid grid-cols-2" style="margin-top: 1.5rem;">
-      <!-- Class 1 -->
-      <div class="card">
-        <div class="card-title">
-          <span>Vanguard (Knight)</span>
-          <span class="badge badge-amber">Tank</span>
+      {classesList.map((item) => (
+        <div class="card">
+          <div class="card-title">
+            <span>{item.name}</span>
+            <span class="badge badge-amber">{item.name}</span>
+          </div>
+          <p><strong>Combat Role:</strong> {item.role}</p>
+          <p><strong>Playstyle:</strong> {item.style}</p>
+          <p style="margin-bottom: 0;"><strong>Best For:</strong> {item.bestFor}</p>
         </div>
-        <p><strong>Primary Weapon:</strong> Sword & Tower Shield</p>
-        <p><strong>Playstyle:</strong> Frontline mitigation and threat management. Features defensive stances that reduce incoming physical damage and retaliate with counter-strikes.</p>
-        <p><strong>Core Strengths:</strong> High health pool, passive armor scaling, reliable solo survivability.</p>
-        <p style="margin-bottom: 0;"><strong>Best For:</strong> Newcomers wanting a forgiving learning curve and solo dungeon stability.</p>
-      </div>
-
-      <!-- Class 2 -->
-      <div class="card">
-        <div class="card-title">
-          <span>Elementalist (Mage)</span>
-          <span class="badge badge-amber">AoE Caster</span>
-        </div>
-        <p><strong>Primary Weapon:</strong> Spell Staff / Focus Orb</p>
-        <p><strong>Playstyle:</strong> Tactical area damage. Harnesses fire for sustained burn damage, ice for turn delays and freezing, and lightning for high critical burst.</p>
-        <p><strong>Core Strengths:</strong> Fast multi-mob room clearing, long-range engagements, crowd control.</p>
-        <p style="margin-bottom: 0;"><strong>Best For:</strong> Players who enjoy tactical positioning and maximizing turn-by-turn elemental combos.</p>
-      </div>
-
-      <!-- Class 3 -->
-      <div class="card">
-        <div class="card-title">
-          <span>Shadowblade (Rogue)</span>
-          <span class="badge badge-amber">Assassin</span>
-        </div>
-        <p><strong>Primary Weapon:</strong> Dual Daggers / Rapier</p>
-        <p><strong>Playstyle:</strong> High-risk single-target execution. Stacks combo points and bleed debuffs before triggering devastating finishing blows.</p>
-        <p><strong>Core Strengths:</strong> Exceptional burst damage, high natural evasion, critical strike scaling.</p>
-        <p style="margin-bottom: 0;"><strong>Best For:</strong> Experienced tacticians seeking quick boss phase transitions.</p>
-      </div>
-
-      <!-- Class 4 -->
-      <div class="card">
-        <div class="card-title">
-          <span>Cleric / Paladin</span>
-          <span class="badge badge-amber">Support</span>
-        </div>
-        <p><strong>Primary Weapon:</strong> War Hammer & Relic</p>
-        <p><strong>Playstyle:</strong> Hybrid support brawler. Delivers holy smites while keeping party health topped off with regeneration auras and protective wards.</p>
-        <p><strong>Core Strengths:</strong> Health regeneration, debuff cleansing, bonus damage vs. corrupted foes.</p>
-        <p style="margin-bottom: 0;"><strong>Best For:</strong> Co-op dungeon runs and zero-wipe endurance playthroughs.</p>
-      </div>
+      ))}
     </div>
   </section>
 
   <section style="margin-top: 3rem;">
     <h2>Class Comparison & Tier Rankings</h2>
     <p>
-      Wondering which class holds the current record for dungeon clear times or boss DPS?
+      Curious how these 6 classes stack up in current dungeon progression?
     </p>
     <p>
-      Check our dedicated <a href="/tier-list">Fallen Lineage Tier List</a> to see how every archetype compares in the current meta, including S-tier to B-tier rankings and investment requirements.
+      Review our <a href="/tier-list">Fallen Lineage Tier List</a> to see comparative evaluation criteria and ongoing meta testing.
     </p>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>How to Switch or Reroll Classes</h2>
+    <h2>How to Reroll Classes</h2>
     <p>
-      In Fallen Lineage, you are never locked into a single choice permanently. You can reset your active archetype at the central Sanctuary Shrine using Gems or class tokens. Be sure to check our <a href="/codes">Roblox Codes</a> page for free reroll rewards before spending hard-earned in-game gold.
+      Players can switch classes using Reroll Tokens obtained from dungeon milestones or promo codes. Check our <a href="/codes">Roblox Codes</a> page for active token rewards to test new playstyles without losing overall progression.
     </p>
   </section>
 </Base>

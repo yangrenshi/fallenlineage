@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 
 const title = "Fallen Lineage Tier List – Best Classes Ranked";
-const description = "The definitive Fallen Lineage tier list ranking all classes from S-tier to B-tier. Discover the best classes for PvP and PvE with build tips and strengths.";
+const description = "Explore the Fallen Lineage class tier list evaluation framework. Review testing criteria and current ranking status for all 6 character archetypes.";
 const h1 = "Fallen Lineage Tier List";
 
 const siblingLinks = [
@@ -12,6 +12,15 @@ const siblingLinks = [
 ];
 
 const lastUpdatedDate = "November 16, 2026";
+
+const classesStatus = [
+  { name: "Warrior", role: "Tank / Frontline Melee", status: "Pending Verification", note: "Testing solo clear stability and damage mitigation." },
+  { name: "Rogue", role: "Single-Target Assassin", status: "Pending Verification", note: "Testing boss burst efficiency and evasion scaling." },
+  { name: "Mage", role: "AoE Elemental Caster", status: "Pending Verification", note: "Testing wave clear times across mid-tier dungeons." },
+  { name: "Lancer", role: "Armor Piercer / Reach Melee", status: "Pending Verification", note: "Testing armor penetration against armored elites." },
+  { name: "Bard", role: "Party Buffer / Turn Support", status: "Pending Verification", note: "Testing co-op party force multiplier and speed buffs." },
+  { name: "Archer", role: "Ranged Physical DPS", status: "Pending Verification", note: "Testing kiting safety and ranged single-target DPR." }
+];
 ---
 
 <Base
@@ -26,118 +35,95 @@ const lastUpdatedDate = "November 16, 2026";
     <div class="meta-banner">
       <span><strong>Category:</strong> PvE & Dungeon Viability</span>
       <span>&bull;</span>
+      <span><strong>Status:</strong> Active In-Game Testing</span>
+      <span>&bull;</span>
       <span><strong>Updated:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      Our comprehensive <strong>Fallen Lineage tier list</strong> ranks every available character archetype based on clear speed, survival sustainability, and boss encounter efficiency in the turn-based roguelite loop.
+      Our <strong>Fallen Lineage tier list</strong> tracks how each of the 6 available character classes performs in turn-based combat, dungeon crawl longevity, and boss encounters.
     </p>
   </div>
 
   <section>
-    <h2>S/A/B Tier Rankings Breakdown</h2>
+    <h2>S/A/B Class Tier Classification Matrix</h2>
     <p>
-      Classes are categorized into distinct tiers reflecting overall strength across dungeon runs:
+      To prevent misleading players with fabricated numerical ratings, all tiers remain strictly <strong>pending in-game verification</strong> until community testing on the current server build is completed.
     </p>
 
     <div class="table-wrapper">
       <table>
         <thead>
           <tr>
-            <th>Tier</th>
-            <th>Class Archetype</th>
-            <th>Primary Strengths</th>
-            <th>Role Focus</th>
+            <th>Class</th>
+            <th>Combat Role</th>
+            <th>Current Tier Status</th>
+            <th>Evaluation Focus</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <span class="badge badge-amber" style="font-weight: 800; font-size: 0.9rem;">S Tier</span>
-            </td>
-            <td><strong>Elementalist (Mage)</strong></td>
-            <td>Screen-wide elemental cleave, exceptional wave clearing, freeze crowd control.</td>
-            <td>AoE Magic DPS</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="badge badge-amber" style="font-weight: 800; font-size: 0.9rem;">S Tier</span>
-            </td>
-            <td><strong>Vanguard (Knight)</strong></td>
-            <td>High defensive threshold, reliable armor scaling, passive turn regeneration.</td>
-            <td>Physical Tank / Brawler</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="badge badge-green" style="font-weight: 800; font-size: 0.9rem;">A Tier</span>
-            </td>
-            <td><strong>Cleric / Paladin</strong></td>
-            <td>Team barrier buffs, direct heals, bonus holy damage against corrupted bosses.</td>
-            <td>Support / Sustain</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="badge badge-green" style="font-weight: 800; font-size: 0.9rem;">A Tier</span>
-            </td>
-            <td><strong>Shadowblade (Rogue)</strong></td>
-            <td>Rapid single-target burst, bleed stacking, high evasion against boss heavy hits.</td>
-            <td>Single-Target Assassin</td>
-          </tr>
-          <tr>
-            <td>
-              <span class="badge" style="background-color: rgba(148, 163, 184, 0.2); color: #cbd5e1; font-weight: 800; font-size: 0.9rem;">B Tier</span>
-            </td>
-            <td><strong>Spellblade (Hybrid)</strong></td>
-            <td>Versatile elemental infusion, flexible gear requirements, but demands high stat investment.</td>
-            <td>Hybrid Specialist</td>
-          </tr>
+          {classesStatus.map((c) => (
+            <tr>
+              <td><strong>{c.name}</strong></td>
+              <td>{c.role}</td>
+              <td>
+                <span class="badge" style="background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">
+                  {c.status}
+                </span>
+              </td>
+              <td>{c.note}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Why Each Tier is Positioned Here</h2>
-    
+    <h2>Evaluation Criteria: How Tiers Are Determined</h2>
+    <p>
+      Once rankings are populated, each class is evaluated using three strict benchmark metrics:
+    </p>
+
     <div class="card" style="margin-bottom: 1.25rem;">
-      <h3 style="margin-top: 0; color: var(--accent-amber-light);">S-Tier: The Meta Champions</h3>
+      <h3 style="margin-top: 0; color: var(--accent-amber-light);">1. Damage Per Round (DPR) & Clear Speed</h3>
       <p>
-        S-tier archetypes represent the pinnacle of dungeon efficiency. In a turn-based system where taking hits chips away at your run longevity, S-tier classes either kill packs before mobs act (Mage) or completely mitigate incoming burst damage with active mitigation (Knight). They require minimal gear luck to complete basic runs.
+        How quickly an archetype can clear standard mob chambers without dragging battles into prolonged cycles where mistakes become lethal.
       </p>
     </div>
 
     <div class="card" style="margin-bottom: 1.25rem;">
-      <h3 style="margin-top: 0; color: #34d399;">A-Tier: Solid & Dependable Clearers</h3>
+      <h3 style="margin-top: 0; color: #34d399;">2. Survivability & Resource Economy</h3>
       <p>
-        A-tier choices offer steady, reliable progression. While they may take an extra turn or two to clear multi-mob chambers, their utility (such as Paladin's healing or Rogue's single-target execution) makes them exceptionally safe choices for deep dungeon diving and cooperative runs.
+        The ability of a class to sustain health and energy across sequential dungeon floors without depleting emergency consumable vaults.
       </p>
     </div>
 
     <div class="card">
-      <h3 style="margin-top: 0; color: #cbd5e1;">B-Tier: Niche & High-Investment</h3>
+      <h3 style="margin-top: 0; color: #cbd5e1;">3. Boss Raid Viability</h3>
       <p>
-        B-tier archetypes are not weak by design, but they suffer from high resource requirements early on. Without dedicated stat rolling and optimized relic synergies, their damage-to-mana ratio falls behind until mid-to-late game progression is established.
+        Effectiveness when facing elite floor bosses that possess special turn triggers, stun resistance, and high-damage phases.
       </p>
     </div>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Tier List vs. Classes Guide: How to Use Both</h2>
+    <h2>Tier List vs. Classes Guide: Key Differences</h2>
     <p>
-      We maintain a deliberate distinction between our competitive rankings and our class mechanics:
+      We maintain a strict boundary between our ranking comparisons and mechanical walkthroughs:
     </p>
     <ul>
-      <li><strong>This Tier List (`/tier-list`)</strong>: Focuses on competitive viability, meta shifts, clear speeds, and return on investment for end-game content.</li>
-      <li><strong>The Classes Guide (`/classes`)</strong>: Details skill trees, level progression, active ability combinations, and lore for every class individually.</li>
+      <li><strong>Tier List</strong>: Compares overall meta strength, party utility, and relative progression speeds.</li>
+      <li><strong>Classes Guide</strong>: Focuses on individual playstyles, skill descriptions, and role tips.</li>
     </ul>
     <p>
-      If you want to master a specific class rotation, visit our comprehensive <a href="/classes">Classes Guide</a>.
+      To learn more about the playstyle of each archetype, visit our complete <a href="/classes">Classes Guide</a>.
     </p>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Recent Balance Adjustments</h2>
+    <h2>Recent Balance Status</h2>
     <p>
-      Following recent balance adjustments in the November patch, multi-hit elemental spells received scaling tweaks to prevent extreme burst variance. Tank cooldowns were also standardized to improve solo run reliability. For full changelog entries, refer to our <a href="/updates">Patch Notes</a>.
+      With recent server restarts and adjustments rolling out on Roblox, class damage curves are being re-benchmarked. Check our <a href="/trello">Trello Guide</a> to view direct developer development cards, or visit our <a href="/updates">Updates</a> page for official patch records.
     </p>
   </section>
 </Base>

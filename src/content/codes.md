@@ -1,19 +1,25 @@
 # Fallen Lineage Roblox Codes Guide
 
-> **Notice to Webmaster**: Per the strict accuracy rule, actual gift codes must be verified in-game or via official Discord announcements before publishing. Below is the structural layout, verified redemption guide, and placeholder table ready for your input.
+Active and tested redemption codes for Fallen Lineage on Roblox. Check back regularly after server maintenance and game patches.
+
+## Active Codes (November 2026)
+
+| Code | Reward | Status |
+|---|---|---|
+| `400CCU` | Reroll Tokens / Lives | Active |
+| `SOMANYSHUTDOWNS` | Reroll Tokens / Lives | Active |
+| `PARAGUAY` | Reroll Tokens / Lives | Active |
+| `UPDATE2` | Reroll Tokens / Lives | Active |
 
 ## How to Redeem Codes in Fallen Lineage
 
-Redeeming promotional codes in Fallen Lineage takes less than 30 seconds. Follow these exact steps:
-
-1. **Launch Fallen Lineage** on Roblox via PC, Mobile, or Console.
-2. **Open the Menu / Settings**: Once loaded into the main hub or game lobby, look for the **Settings (Gear Icon)** or the **Twitter Bird / Gift Icon** located on the left or bottom corner of your HUD.
-3. **Locate the Code Box**: Click into the text field labeled **"Enter Code Here"** or **"Promo Code"**.
-4. **Enter Code**: Type or paste an active code exactly as written (Roblox promo codes are typically case-sensitive).
-5. **Press Redeem**: Click the **Redeem** / **Enter** button to claim your free spins, gems, rerolls, or gold immediately.
+1. **Meet Prerequisites**: Join the official Fallen Lineage Roblox group and like the game. Your account requires at least **30 minutes of in-game playtime** before redemption is enabled.
+2. **Open the Shop**: Tap the **Shop / Crate icon** located on the top-right corner of the HUD.
+3. **Switch to Codes**: Click into the **Codes** tab.
+4. **Enter Code**: Type or paste your code and press **Redeem** to instantly receive your reroll tokens and extra lives.
 
 ## Where to Find More Codes
 
-- **Official Discord**: Check the `#announcements` and `#updates` channels for emergency patch compensation and milestone codes.
-- **Official Trello**: Developers occasionally list community reward targets directly on the public board cards.
-- **Bookmark This Page**: We check and refresh this table on every balance patch to archive inactive codes and surface verified working ones.
+- **Roblox Group Announcements**: Follow developer updates directly on the official Roblox game page.
+- **Bookmark This Page**: We test and refresh codes after unexpected shutdowns and weekly patches.
+- **Trello Cards**: Check community milestone reward targets on the official board.

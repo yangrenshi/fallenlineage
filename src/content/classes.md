@@ -1,41 +1,41 @@
 # Fallen Lineage Character Classes Overview
 
-Classes in Fallen Lineage determine your character's foundational combat role, skill tree paths, stat scaling priorities, and active combat capabilities in the turn-based roguelite loop.
+Complete overview of the 6 core character classes available in Fallen Lineage on Roblox.
 
-## Overview of Combat Archetypes
+## The 6 Available Classes
 
-Fallen Lineage features distinct branches catering to different tactical styles:
-- **Melee Vanguard**: High physical durability, crowd control, and turn manipulation.
-- **Arcane Specialists**: Elemental burst, broad area-of-effect spells, and status afflictions.
-- **Shadow Strikers**: Critical strike mechanics, evasion, and priority target elimination.
-- **Holy & Support Conduits**: Sustained regeneration, shield buffs, and turn recovery.
+### 1. Warrior
+- **Combat Role**: Frontline Tank / Melee Brawler
+- **Playstyle**: High durability, heavy shields, and counter-strikes. Holds the line while taking the brunt of enemy attacks.
+- **Best For**: Beginners wanting high survivability and reliable turn-based defense.
 
----
+### 2. Rogue
+- **Combat Role**: Agile Assassin / Single-Target DPS
+- **Playstyle**: Swift strikes, critical hits, and dodge mechanics. Eliminates high-threat dungeon monsters before they cycle turns.
+- **Best For**: Advanced players who thrive on high-damage timing and precision kills.
 
-## Detailed Archetype Breakdowns
+### 3. Mage
+- **Combat Role**: Ranged Caster / AoE Damage
+- **Playstyle**: Elemental spells targeting multiple foes simultaneously. High clear speeds balanced by lower defensive resilience.
+- **Best For**: Wave-clearing and elemental weakness exploitation.
 
-### 1. The Knight / Vanguard
-- **Role**: Frontline Tank & Sustained Physical Brawler
-- **Playstyle**: Relies on armor deflection, parry stances, and high base health to absorb heavy boss attacks. Excels in long encounters where enemy damage ramps over subsequent rounds.
-- **Best For**: Beginners who prefer forgiving health margins and straightforward physical turn rotations.
+### 4. Lancer
+- **Combat Role**: Piercing Fighter / Mid-Range Melee
+- **Playstyle**: Mid-range polearm attacks, armor piercing, and controlled thrusts.
+- **Best For**: Players who want solid physical reach combined with sturdy combat resilience.
 
-### 2. The Elementalist / Mage
-- **Role**: Ranged AoE DPS & Elemental Controller
-- **Playstyle**: Uses mana pools to cast multi-target fire, frost, and lightning spells. High burst damage potential capable of clearing entire mob waves in a single round, balanced by fragile base defense.
-- **Best For**: Players who enjoy risk-reward gameplay, crowd control combos, and optimizing turn-by-turn elemental weaknesses.
+### 5. Bard
+- **Combat Role**: Party Buffer / Turn Support
+- **Playstyle**: Plays inspiring melodies to buff party damage, heal over time, and manipulate turn initiative.
+- **Best For**: Multiplayer dungeon co-op and support enthusiasts.
 
-### 3. The Rogue / Shadowblade
-- **Role**: Single-Target Assassin & Status Inflictor
-- **Playstyle**: Builds combo points through rapid strikes, applying bleed or poison stacks before executing high-damage critical finishers. Features evasion skills to dodge lethal boss abilities.
-- **Best For**: Advanced players with strong timing and encounter knowledge who want to burst down elite dungeon bosses before secondary phases trigger.
-
-### 4. The Cleric / Paladin
-- **Role**: Hybrid Support & Holy Damage Dealer
-- **Playstyle**: Blends holy spells with heavy blunt weapons. Provides team heals, cleanse mechanics, and protective barrier spells while dishing out bonus damage against undead or corrupted mob types.
-- **Best For**: Co-op dungeon runs and safe, consistent solo roguelite clears with near-zero wipe risk.
+### 6. Archer
+- **Combat Role**: Ranged Marksman / Physical DPS
+- **Playstyle**: Safe long-range projectile combat with bows, keeping clear of lethal boss abilities.
+- **Best For**: Players who prefer consistent physical DPS from outside enemy melee range.
 
 ---
 
 ## Comparative Meta Evaluation
 
-Looking for an objective ranking of which class yields the highest clear times and win rates? Visit our dedicated [Fallen Lineage Tier List](/tier-list) to see real-world performance metrics, tier rankings (S/A/B), and recent balance changes.
+Looking for how these 6 classes rank against each other? Visit our dedicated [Tier List](/tier-list) for ongoing meta evaluations.

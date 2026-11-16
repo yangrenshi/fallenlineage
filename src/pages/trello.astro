@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 
 const title = "Fallen Lineage Trello Board – What Each List Means";
-const description = "Access the official Fallen Lineage Trello link and board directory. Learn what each column covers, from roadmap plans and cards to official Discord links.";
+const description = "Access the official Fallen Lineage Trello board link. Explore public developer cards, upcoming roadmap features, class formulas, and community resources.";
 const h1 = "Fallen Lineage Trello";
 
 const siblingLinks = [
@@ -11,6 +11,7 @@ const siblingLinks = [
   { title: "Classes Guide", href: "/classes", desc: "Learn individual skills and scaling mechanics." }
 ];
 
+const officialTrelloUrl = "https://trello.com/c/TJdNiq1k";
 const lastUpdatedDate = "November 16, 2026";
 ---
 
@@ -24,27 +25,38 @@ const lastUpdatedDate = "November 16, 2026";
     <span class="badge badge-amber">Official Reference</span>
     <h1 style="margin-top: 0.75rem;">{h1}</h1>
     <div class="meta-banner">
-      <span><strong>Source:</strong> Official Development Hub</span>
+      <span><strong>Source:</strong> Verified Trello Board Link</span>
       <span>&bull;</span>
-      <span><strong>Verified:</strong> {lastUpdatedDate}</span>
+      <span><strong>Updated:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      The official <strong>Fallen Lineage Trello</strong> board is the primary developer-maintained information hub. Learn how to locate the official link, interpret development cards, and read upcoming patch roadmaps accurately.
+      The official <strong>Fallen Lineage Trello</strong> board is the primary developer-maintained information hub. Access the live board link below and learn what each column represents.
     </p>
   </div>
 
-  <section>
-    <h2>Official Trello Board Access</h2>
-    <p>
-      Fallen Lineage developers host their public cards directly on Trello to maintain transparency with the Roblox community.
-    </p>
-    <div class="callout callout-info">
-      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">Accessing the Official Link Safely</h3>
-      <p>
-        Always obtain the Trello link directly from the verified Roblox game page or the developer's official Discord server. Avoid searching generic forums to protect your account from phishing replicas.
+  <!-- Hero CTA: Most Prominent Position on Screen -->
+  <section style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+    <div class="card" style="border: 2px solid var(--accent-amber); background: linear-gradient(135deg, rgba(24, 29, 44, 0.95), rgba(19, 23, 34, 0.95)); padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
+      <span class="badge badge-amber" style="margin-bottom: 0.75rem; font-size: 0.85rem; padding: 0.3rem 0.8rem;">Direct Developer Hub</span>
+      <h2 style="border: none; margin-top: 0.5rem; margin-bottom: 0.75rem; font-size: 1.85rem; color: #ffffff;">
+        Official Fallen Lineage Trello Board
+      </h2>
+      <p style="max-width: 650px; margin: 0 auto 1.5rem auto; font-size: 1rem; color: var(--text-secondary);">
+        Direct access to developer roadmap cards, character class progression trees, item drop rates, and upcoming patch candidate details.
       </p>
-      <p style="margin-bottom: 0;">
-        <strong>Board Status:</strong> Public Read-Only (No login required to view cards or attachments).
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a
+          href={officialTrelloUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+          style="font-size: 1.05rem; padding: 0.85rem 1.75rem; font-weight: 700; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);"
+        >
+          Open Official Trello Board &#8599;
+        </a>
+      </div>
+      <p style="margin-top: 1rem; margin-bottom: 0; font-size: 0.85rem; color: var(--text-muted);">
+        Verified URL: <code style="color: var(--accent-amber-light);">{officialTrelloUrl}</code> (Public Access &bull; No Login Required)
       </p>
     </div>
   </section>
@@ -58,7 +70,7 @@ const lastUpdatedDate = "November 16, 2026";
     <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
       <div class="card">
         <h3 style="margin-top: 0; color: var(--accent-amber-light);">1. Information & Rules</h3>
-        <p>Contains general guidelines, developer credits, official group links, and core terminology explaining turn-based combat mechanics.</p>
+        <p>Contains general guidelines, developer credits, official Roblox group links, and core terminology explaining turn-based combat mechanics.</p>
       </div>
 
       <div class="card">
@@ -94,21 +106,21 @@ const lastUpdatedDate = "November 16, 2026";
       To anticipate meta shifts and build changes before they go live in-game:
     </p>
     <ol>
-      <li><strong>Check Card Badges:</strong> Look for updated timestamp labels or colored labels (e.g., green for completed, orange for testing).</li>
+      <li><strong>Check Card Badges:</strong> Look for updated timestamp labels or colored tags indicating completed work.</li>
       <li><strong>Inspect Card Descriptions:</strong> Developers often update raw formulas inside card descriptions days before deploying the server patch.</li>
-      <li><strong>Cross-Check with Our Tier List:</strong> Use previewed balance tweaks to plan your next character reroll using our <a href="/tier-list">Class Tier List</a>.</li>
+      <li><strong>Cross-Check with Our Tier List:</strong> Compare previewed balance tweaks with our <a href="/tier-list">Class Tier List</a> to prepare builds in advance.</li>
     </ol>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Official Discord Community Access</h2>
+    <h2>Official Community & Code Releases</h2>
     <p>
-      While Trello serves as the reference encyclopedia, the <strong>Official Discord</strong> is where live interaction happens:
+      In addition to the public Trello cards, check our other resources:
     </p>
     <ul>
-      <li><strong>Live Code Releases:</strong> New promotional rewards are announced first in `#announcements`—be sure to grab them on our <a href="/codes">Roblox Codes</a> page.</li>
-      <li><strong>Developer Q&A:</strong> Weekly balance discussions and community suggestion forums.</li>
-      <li><strong>Guild & Co-op Finder:</strong> Form parties with experienced players to conquer hardcore multiplayer dungeons.</li>
+      <li>Claim in-game rewards on our <a href="/codes">Roblox Codes</a> page.</li>
+      <li>Read through our 6 archetype breakdowns on the <a href="/classes">Classes Guide</a>.</li>
+      <li>Review beginner tips and turn order in our <a href="/guides/beginner">Beginner Guide</a>.</li>
     </ul>
   </section>
 </Base>

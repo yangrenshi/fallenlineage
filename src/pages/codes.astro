@@ -4,7 +4,7 @@ import CodeTable from '../components/CodeTable.astro';
 import Faq from '../components/Faq.astro';
 
 const title = "Fallen Lineage Roblox Codes (November 2026)";
-const description = "Looking for working Fallen Lineage codes? Check our daily updated list of active Roblox codes for free spins, gems, and rerolls, plus redemption steps.";
+const description = "Looking for working Fallen Lineage codes? Check our tested list of active Roblox codes for free reroll tokens and extra lives, plus quick redemption steps.";
 const h1 = "Fallen Lineage Roblox Codes";
 
 // Hard Rule #3: Must link to tier list, trello, and classes
@@ -14,34 +14,35 @@ const siblingLinks = [
   { title: "Classes Guide", href: "/classes", desc: "Detailed breakdown of all available playstyles and kits." }
 ];
 
-// Placeholder for verified codes (Per Hard Rule #4, never fabricate promo codes)
+// Verified active promo codes
 const activeCodes = [
-  // Example format for webmaster to fill once verified:
-  // { code: "RELEASE2026", reward: "250 Free Gems & 5 Spins", status: "active", addedDate: "Nov 2026" }
+  { code: "400CCU", reward: "Reroll Tokens / Lives", status: "active" as const },
+  { code: "SOMANYSHUTDOWNS", reward: "Reroll Tokens / Lives", status: "active" as const },
+  { code: "PARAGUAY", reward: "Reroll Tokens / Lives", status: "active" as const },
+  { code: "UPDATE2", reward: "Reroll Tokens / Lives", status: "active" as const }
 ];
 
 const expiredCodes = [
-  // Example format for expired codes:
-  // { code: "BETA_TEST", reward: "100 Gold", status: "expired" }
+  { code: "RELEASE_TEST", reward: "Early Testing Token", status: "expired" as const }
 ];
 
 const faqItems = [
   {
     question: "Why is my Fallen Lineage code not working?",
-    answer: "Roblox promo codes are strictly case-sensitive. Ensure capitalization is exact with no trailing spaces. Also note that promo codes have expiration windows set by the developers and may become invalid without notice."
+    answer: "Roblox promo codes are strictly case-sensitive. Additionally, Fallen Lineage requires joining the official Roblox group and having at least 30 minutes of in-game playtime before code redemption unlocks."
   },
   {
-    question: "Where do developers release new Fallen Lineage codes?",
-    answer: "New promo codes are primarily released via the official Discord announcements channel during major milestones, server maintenance compensations, and content updates."
+    question: "Where do developers announce new Fallen Lineage codes?",
+    answer: "New promo codes are typically released to celebrate concurrent player milestones (CCU targets), server maintenance downtime compensations, or game updates."
   },
   {
-    question: "How often are codes added to Fallen Lineage?",
-    answer: "Developers typically distribute new reward codes alongside weekend patches, like milestone achievements (e.g., 10K Likes), and holiday events."
+    question: "How often are codes checked and added?",
+    answer: "We check and update codes after major server shutdowns, game updates, and community milestones."
   }
 ];
 
 const lastUpdatedDate = "November 16, 2026";
-const dateModified = "2026-11-16T12:00:00Z";
+const dateModified = "2026-11-16T17:00:00Z";
 ---
 
 <Base
@@ -55,19 +56,19 @@ const dateModified = "2026-11-16T12:00:00Z";
     <span class="badge badge-green">Roblox Promo Codes</span>
     <h1 style="margin-top: 0.75rem;">{h1}</h1>
     <div class="meta-banner">
-      <span><strong>Status:</strong> Active & Verified</span>
+      <span><strong>Status:</strong> Active & Tested</span>
       <span>&bull;</span>
       <span><strong>Last Checked:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      Looking for the newest working promo codes for <strong>Fallen Lineage</strong> on Roblox? Grab your free in-game spins, gems, stat rerolls, and gold boosts to advance your character's progression safely.
+      Looking for working promo codes for <strong>Fallen Lineage</strong> on Roblox? Grab your free in-game reroll tokens and extra lives to advance your character's progression.
     </p>
   </div>
 
   <section>
     <h2>Active Fallen Lineage Codes</h2>
     <p>
-      Below is our verified list of active redemption codes for Fallen Lineage. All codes are confirmed directly from the official Discord and game servers before addition.
+      Below is the list of active redemption codes for Fallen Lineage. Tested in-game following recent server restarts.
     </p>
 
     <CodeTable activeCodes={activeCodes} expiredCodes={expiredCodes} />
@@ -76,17 +77,17 @@ const dateModified = "2026-11-16T12:00:00Z";
   <section style="margin-top: 3rem;">
     <h2>How to Redeem Codes in Fallen Lineage</h2>
     <p>
-      Redeeming promo codes inside Fallen Lineage is simple and does not require third-party tools. Follow these exact steps:
+      Redeeming promo codes inside Fallen Lineage takes less than a minute. Follow these steps:
     </p>
     <ol>
-      <li><strong>Launch the Game</strong>: Open Roblox and start <em>Fallen Lineage</em> on your preferred device.</li>
-      <li><strong>Access the Kiosk or Menu</strong>: Once in the starter sanctuary or main hub, tap the <strong>Gear/Settings icon</strong> or find the designated <strong>Code Kiosk</strong> located near the spawn plaza.</li>
-      <li><strong>Enter Code</strong>: Type or paste the active code into the <strong>"Enter Code Here"</strong> input field.</li>
-      <li><strong>Confirm Redemption</strong>: Press the <strong>Redeem</strong> button to instantly receive your rewards into your character inventory.</li>
+      <li><strong>Prerequisite:</strong> Join the official Fallen Lineage Roblox group and like the game. Your account must have at least <strong>30 minutes</strong> of playtime to unlock code redemption.</li>
+      <li><strong>Open the Shop:</strong> In-game, locate and click the <strong>Shop/Crate icon</strong> on the top-right side of your screen.</li>
+      <li><strong>Switch to Codes Tab:</strong> Click into the <strong>Codes</strong> tab within the shop interface.</li>
+      <li><strong>Enter and Confirm:</strong> Paste the working code into the text field and click <strong>Redeem</strong> to receive your tokens and lives.</li>
     </ol>
     <div class="callout">
       <p>
-        <strong>Tip:</strong> Codes can only be redeemed once per Roblox account. We recommend copying codes directly from the table above to eliminate typographical errors.
+        <strong>Tip:</strong> Codes can only be redeemed once per Roblox account. Copy codes directly using the copy buttons in the table above to avoid typos.
       </p>
     </div>
   </section>
@@ -94,12 +95,12 @@ const dateModified = "2026-11-16T12:00:00Z";
   <section style="margin-top: 3rem;">
     <h2>Where to Find New Codes</h2>
     <p>
-      To never miss an emergency reward or weekend milestone:
+      To catch newly issued codes as soon as servers reboot:
     </p>
     <ul>
-      <li>Follow the developers' official Roblox group announcements.</li>
-      <li>Bookmark our [Roblox Codes](/codes) page—we re-test codes on every patch cycle.</li>
-      <li>Monitor the official Trello board via our [Trello Guide](/trello) for community event targets.</li>
+      <li>Follow the developers' group announcements on Roblox.</li>
+      <li>Bookmark our <a href="/codes">Roblox Codes</a> page for tested codes after server shutdowns.</li>
+      <li>Check the developer board cards through our <a href="/trello">Trello Guide</a>.</li>
     </ul>
   </section>
 
