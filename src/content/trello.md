@@ -1,4 +1,4 @@
-# Fallen Lineage Official Trello Directory & Fact Check
+# Fallen Lineage Trello – No Official Board (Real Discord & Group Links)
 
 Searching for the official Fallen Lineage Trello? Here is the honest, verified breakdown.
 
