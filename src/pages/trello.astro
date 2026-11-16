@@ -2,16 +2,17 @@
 import Base from '../layouts/Base.astro';
 
 const title = "Fallen Lineage Trello Board – What Each List Means";
-const description = "Access the official Fallen Lineage Trello board link. Explore public developer cards, upcoming roadmap features, class formulas, and community resources.";
+const description = "Searching for the Fallen Lineage Trello board? Learn why there is no official public board yet, avoid fake links, and find real Discord and community hubs.";
 const h1 = "Fallen Lineage Trello";
 
 const siblingLinks = [
-  { title: "Roblox Codes", href: "/codes", desc: "Redeem active promo codes for free rolls." },
-  { title: "Class Tier List", href: "/tier-list", desc: "Check community rankings and meta picks." },
-  { title: "Classes Guide", href: "/classes", desc: "Learn individual skills and scaling mechanics." }
+  { title: "Roblox Codes", href: "/codes", desc: "Redeem reported working promo codes for free rolls." },
+  { title: "Class Tier List", href: "/tier-list", desc: "Check community rankings and meta testing." },
+  { title: "Classes Guide", href: "/classes", desc: "Learn all 6 archetypes: Warrior, Mage, Rogue & more." }
 ];
 
-const officialTrelloUrl = "https://trello.com/c/TJdNiq1k";
+const officialDiscordUrl = "https://discord.com/invite/CVXghKVQSH";
+const officialRobloxGroupUrl = "https://www.roblox.com/communities/889770537/odanos";
 const lastUpdatedDate = "November 16, 2026";
 ---
 
@@ -22,105 +23,100 @@ const lastUpdatedDate = "November 16, 2026";
   siblingLinks={siblingLinks}
 >
   <div style="margin-bottom: 1.5rem;">
-    <span class="badge badge-amber">Official Reference</span>
+    <span class="badge badge-amber">Community Notice</span>
     <h1 style="margin-top: 0.75rem;">{h1}</h1>
     <div class="meta-banner">
-      <span><strong>Source:</strong> Verified Trello Board Link</span>
+      <span><strong>Status:</strong> No Official Public Board</span>
       <span>&bull;</span>
-      <span><strong>Updated:</strong> {lastUpdatedDate}</span>
+      <span><strong>Fact-Checked:</strong> {lastUpdatedDate}</span>
     </div>
     <p>
-      The official <strong>Fallen Lineage Trello</strong> board is the primary developer-maintained information hub. Access the live board link below and learn what each column represents.
+      Searching for the official <strong>Fallen Lineage Trello</strong>? Here is the honest, verified breakdown of where developer updates, balance notes, and game resources actually live.
     </p>
   </div>
 
-  <!-- Hero CTA: Most Prominent Position on Screen -->
+  <!-- Hero Truth Card: Top Most Prominent Section -->
   <section style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
-    <div class="card" style="border: 2px solid var(--accent-amber); background: linear-gradient(135deg, rgba(24, 29, 44, 0.95), rgba(19, 23, 34, 0.95)); padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
-      <span class="badge badge-amber" style="margin-bottom: 0.75rem; font-size: 0.85rem; padding: 0.3rem 0.8rem;">Direct Developer Hub</span>
-      <h2 style="border: none; margin-top: 0.5rem; margin-bottom: 0.75rem; font-size: 1.85rem; color: #ffffff;">
-        Official Fallen Lineage Trello Board
+    <div class="card" style="border: 2px solid var(--border-highlight); background: linear-gradient(135deg, rgba(24, 29, 44, 0.95), rgba(19, 23, 34, 0.95)); padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
+      <span class="badge" style="background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); margin-bottom: 0.75rem; font-size: 0.85rem; padding: 0.3rem 0.8rem;">
+        Direct Fact Check
+      </span>
+      <h2 style="border: none; margin-top: 0.5rem; margin-bottom: 0.75rem; font-size: 1.65rem; color: #ffffff;">
+        Fallen Lineage Does Not Have an Official Public Trello Board
       </h2>
-      <p style="max-width: 650px; margin: 0 auto 1.5rem auto; font-size: 1rem; color: var(--text-secondary);">
-        Direct access to developer roadmap cards, character class progression trees, item drop rates, and upcoming patch candidate details.
+      <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+        Unlike some Roblox RPGs that manage public development boards, the creator of Fallen Lineage (<strong>odanos</strong>) does <strong>not</strong> operate a public Trello workspace. All legitimate development roadmaps, patch previews, and reward announcements are communicated exclusively through two official channels below.
       </p>
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a
-          href={officialTrelloUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          style="font-size: 1.05rem; padding: 0.85rem 1.75rem; font-weight: 700; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);"
-        >
-          Open Official Trello Board &#8599;
-        </a>
-      </div>
-      <p style="margin-top: 1rem; margin-bottom: 0; font-size: 0.85rem; color: var(--text-muted);">
-        Verified URL: <code style="color: var(--accent-amber-light);">{officialTrelloUrl}</code> (Public Access &bull; No Login Required)
-      </p>
-    </div>
-  </section>
 
-  <section style="margin-top: 3rem;">
-    <h2>What Each Column (List) Means</h2>
-    <p>
-      The Fallen Lineage board is organized into specific lists arranged from general information to complex mechanics:
-    </p>
+      <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
+        <div class="card" style="background-color: var(--bg-card); border-color: var(--border-highlight);">
+          <h3 style="margin-top: 0; color: #38bdf8; font-size: 1.15rem;">1. Official Discord Community</h3>
+          <p style="font-size: 0.925rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            The primary developer hub for real-time announcements, server shutdown compensation notices, and player balance discussions.
+          </p>
+          <a
+            href={officialDiscordUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            style="width: fit-content; font-size: 0.9rem;"
+          >
+            Join Official Discord &rarr;
+          </a>
+        </div>
 
-    <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">1. Information & Rules</h3>
-        <p>Contains general guidelines, developer credits, official Roblox group links, and core terminology explaining turn-based combat mechanics.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">2. Roadmap & Upcoming Patches</h3>
-        <p>Highlights features currently in active development, including upcoming class masteries, new dungeon biomes, and UI overhauls.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">3. Classes & Abilities</h3>
-        <p>The definitive list of class cards detailing base damage multipliers, mana costs, skill tree requirements, and unlock shrines.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">4. Items, Weapons & Relics</h3>
-        <p>Comprehensive stat cards for dropped loot, rarity tiers, consumable potion effects, and dungeon drop rates.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">5. Bosses & Enemies</h3>
-        <p>Tactical breakdown of dungeon encounters, boss phase triggers, special attack patterns, and resistance profiles.</p>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top: 0; color: var(--accent-amber-light);">6. Bug Tracker & Known Issues</h3>
-        <p>Active issues acknowledged by the dev team with tags indicating whether a fix is scheduled for the next patch cycle.</p>
+        <div class="card" style="background-color: var(--bg-card); border-color: var(--border-highlight);">
+          <h3 style="margin-top: 0; color: var(--accent-amber-light); font-size: 1.15rem;">2. Official Roblox Group (odanos)</h3>
+          <p style="font-size: 0.925rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            The verified creator group on Roblox. Joining this group is also an in-game requirement to unlock promo code redemptions.
+          </p>
+          <a
+            href={officialRobloxGroupUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            style="width: fit-content; font-size: 0.9rem;"
+          >
+            Visit Roblox Group &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Beware of Misleading External Links -->
   <section style="margin-top: 3rem;">
-    <h2>How to Track Game Updates Using Trello</h2>
+    <h2>Beware of Misleading Trello Links Online</h2>
     <p>
-      To anticipate meta shifts and build changes before they go live in-game:
+      Several automated scrapers, YouTube descriptions, and low-quality wikis post incorrect Trello links for Fallen Lineage:
     </p>
-    <ol>
-      <li><strong>Check Card Badges:</strong> Look for updated timestamp labels or colored tags indicating completed work.</li>
-      <li><strong>Inspect Card Descriptions:</strong> Developers often update raw formulas inside card descriptions days before deploying the server patch.</li>
-      <li><strong>Cross-Check with Our Tier List:</strong> Compare previewed balance tweaks with our <a href="/tier-list">Class Tier List</a> to prepare builds in advance.</li>
-    </ol>
+
+    <div class="callout">
+      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">Common Misconceptions & False Boards:</h3>
+      <ul style="margin-bottom: 0; padding-left: 1.25rem;">
+        <li>
+          <strong>The Arcane Odyssey Card (TJdNiq1k):</strong> The widely circulated URL <code>trello.com/c/TJdNiq1k</code> actually belongs to an entirely different game—<em>Arcane Odyssey</em> (specifically Card #35 "Next Update Info / General Roadmap"). It has no connection to Fallen Lineage.
+        </li>
+        <li>
+          <strong>Fabricated Wiki Columns:</strong> Some scraped sites describe Naruto-themed features (such as clans, chakra points, and jutsu). Fallen Lineage is a medieval turn-based roguelite featuring 6 combat classes (Warrior, Rogue, Mage, Lancer, Bard, Archer), not an anime simulator.
+        </li>
+        <li>
+          <strong>Phishing Risks:</strong> Never enter your Roblox credentials on third-party boards claiming to offer free spins or admin privileges.
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section style="margin-top: 3rem;">
-    <h2>Official Community & Code Releases</h2>
+    <h2>Where to Get Verified Game Information</h2>
     <p>
-      In addition to the public Trello cards, check our other resources:
+      Since no public Trello exists, here is where to find verified game data:
     </p>
     <ul>
-      <li>Claim in-game rewards on our <a href="/codes">Roblox Codes</a> page.</li>
-      <li>Read through our 6 archetype breakdowns on the <a href="/classes">Classes Guide</a>.</li>
-      <li>Review beginner tips and turn order in our <a href="/guides/beginner">Beginner Guide</a>.</li>
+      <li><strong>Promo Codes:</strong> Check our updated <a href="/codes">Roblox Codes</a> page for active tokens and lives.</li>
+      <li><strong>Class Mechanics:</strong> Learn how all 6 archetypes play in our <a href="/classes">Classes Guide</a>.</li>
+      <li><strong>Class Rankings:</strong> Review current evaluation benchmarks on our <a href="/tier-list">Class Tier List</a>.</li>
+      <li><strong>Beginner Tips:</strong> Read our walkthrough on surviving your first dungeon run in the <a href="/guides/beginner">Beginner Guide</a>.</li>
     </ul>
   </section>
 </Base>
