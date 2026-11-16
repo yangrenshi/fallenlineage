@@ -1,0 +1,116 @@
+---
+interface CodeItem {
+  code: string;
+  reward: string;
+  status: 'active' | 'expired';
+  addedDate?: string;
+}
+
+interface Props {
+  activeCodes?: CodeItem[];
+  expiredCodes?: CodeItem[];
+}
+
+const { activeCodes = [], expiredCodes = [] } = Astro.props;
+---
+
+<div class="codes-section">
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Reward</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {activeCodes.length === 0 ? (
+          <tr>
+            <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+              <em>No active codes currently recorded. Awaiting in-game and official Discord verification. Place newly verified codes in <code>src/pages/codes.astro</code>.</em>
+            </td>
+          </tr>
+        ) : (
+          activeCodes.map((item) => (
+            <tr>
+              <td>
+                <span class="code-cell">{item.code}</span>
+              </td>
+              <td>{item.reward}</td>
+              <td>
+                <span class="badge badge-green">Working</span>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-copy"
+                  data-code={item.code}
+                  style="padding: 0.3rem 0.75rem; font-size: 0.8rem;"
+                >
+                  Copy
+                </button>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Expired Codes Archive</h3>
+  <p style="font-size: 0.9rem; color: var(--text-muted);">
+    These codes have been verified as expired or no longer redeemable in Fallen Lineage. Kept for historical reference.
+  </p>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Expired Code</th>
+          <th>Former Reward</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {expiredCodes.length === 0 ? (
+          <tr>
+            <td colspan="3" style="text-align: center; padding: 1.5rem; color: var(--text-muted);">
+              <em>No expired codes archived yet.</em>
+            </td>
+          </tr>
+        ) : (
+          expiredCodes.map((item) => (
+            <tr>
+              <td>
+                <span class="code-cell code-expired">{item.code}</span>
+              </td>
+              <td style="color: var(--text-muted);">{item.reward}</td>
+              <td>
+                <span class="badge badge-red">Expired</span>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  // Pure lightweight native copy logic
+  document.querySelectorAll('.btn-copy').forEach((button) => {
+    button.addEventListener('click', () => {
+      const code = button.getAttribute('data-code');
+      if (code) {
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = 'Copied!';
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 1800);
+        });
+      }
+    });
+  });
+</script>

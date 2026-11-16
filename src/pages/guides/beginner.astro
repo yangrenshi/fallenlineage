@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+
+const title = "Fallen Lineage Beginner Guide";
+const description = "Master your first hour in Fallen Lineage with our essential beginner guide. Learn currency progression, combat basics, common pitfalls, and leveling paths.";
+const h1 = "Fallen Lineage Beginner Guide";
+
+const siblingLinks = [
+  { title: "Roblox Codes", href: "/codes", desc: "Redeem starter codes for gold, gems, and free spins." },
+  { title: "Classes Guide", href: "/classes", desc: "Select the optimal archetype for your playstyle." },
+  { title: "Class Tier List", href: "/tier-list", desc: "Check community rankings before committing resources." }
+];
+
+const faqItems = [
+  {
+    question: "Do I lose all progression when my character dies?",
+    answer: "No. Fallen Lineage features roguelite mechanics: while temporary floor consumables and unbanked gold may be lost upon death, your account-wide talent tree, class mastery levels, and premium currencies remain permanently stored."
+  },
+  {
+    question: "How do I bank gold safely before difficult encounters?",
+    answer: "Look for Sanctuary Campfires and Shrine Alters located between dungeon floors. Interacting with these shrines allows you to store collected gold into your permanent vault."
+  },
+  {
+    question: "What is the best starter class for complete beginners?",
+    answer: "The Vanguard (Knight) is strongly recommended for beginners due to its generous base health pool, active defense shields, and forgiving damage-mitigation abilities."
+  }
+];
+
+const lastUpdatedDate = "November 16, 2026";
+---
+
+<Base
+  title={title}
+  description={description}
+  h1={h1}
+  siblingLinks={siblingLinks}
+>
+  <div style="margin-bottom: 1.5rem;">
+    <span class="badge badge-amber">Starter Walkthrough</span>
+    <h1 style="margin-top: 0.75rem;">{h1}</h1>
+    <div class="meta-banner">
+      <span><strong>Level Range:</strong> Early Game (Level 1–25)</span>
+      <span>&bull;</span>
+      <span><strong>Updated:</strong> {lastUpdatedDate}</span>
+    </div>
+    <p>
+      Starting your journey in <strong>Fallen Lineage</strong> on Roblox can be challenging due to its tactical turn-based combat and roguelite stakes. This beginner handbook will guide you through your first hour, progression economies, and common traps to avoid.
+    </p>
+  </div>
+
+  <section>
+    <h2>Your First Hour: Progression Checklist</h2>
+    <p>
+      To build a solid character foundation and avoid early death loops, follow this proven routine:
+    </p>
+    <ol>
+      <li><strong>Claim Starter Boosts</strong>: Before entering any dungeon, visit our <a href="/codes">Fallen Lineage Codes</a> page to redeem all current active codes for starting gems, gold, and rerolls.</li>
+      <li><strong>Understand Turn Order & Initiative</strong>: Fallen Lineage displays an action timeline. Faster agility ratings allow you to act more frequently than slow heavy enemies. Prioritize neutralizing high-speed mobs before they chain attacks.</li>
+      <li><strong>Focus on Safe Encounters</strong>: Stick to shallow dungeon chambers until your primary archetype reaches level 10 and unlocks its first defensive recovery passive.</li>
+      <li><strong>Bank Your Resources Frequently</strong>: Return to the Sanctuary Shrine whenever your inventory contains significant currency. Never enter boss rooms with unbanked wealth.</li>
+    </ol>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Currencies & Progression Economy</h2>
+    <p>
+      Understanding what each resource buys ensures you never waste precious drops:
+    </p>
+
+    <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--accent-amber-light);">Gold / Coins</h3>
+        <p><strong>Source:</strong> Dungeon mob drops, chest loots, selling vendor scrap.</p>
+        <p style="margin-bottom: 0;"><strong>Usage:</strong> Purchasing basic potions, equipment repairs, and fundamental skill scrolls.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-top: 0; color: var(--accent-amber-light);">Gems & Shards</h3>
+        <p><strong>Source:</strong> Boss triumphs, milestone quests, promotional redemption codes.</p>
+        <p style="margin-bottom: 0;"><strong>Usage:</strong> Unlocking new character classes, rerolling passive traits, and cosmetic effects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Common Beginner Mistakes to Avoid</h2>
+    <div class="callout">
+      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">1. Ignoring Defensive Cooldowns</h3>
+      <p>
+        Many players prioritize all-out offense and run out of health against elite mobs. In Fallen Lineage, one well-timed guard stance or evasion buff can prevent lethal burst damage.
+      </p>
+    </div>
+
+    <div class="callout">
+      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">2. Hoarding Consumable Potions</h3>
+      <p>
+        Never hesitate to drink a minor health potion to maintain a healthy HP buffer. Surviving a run is far more profitable than wiping with a full bag of unused consumables.
+      </p>
+    </div>
+
+    <div class="callout">
+      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">3. Forgetting the Official Resources</h3>
+      <p>
+        Game balance changes frequently on Roblox. Check the <a href="/trello">Official Trello</a> and our <a href="/tier-list">Tier List</a> to ensure your selected build remains optimal after server patches.
+      </p>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Frequently Asked Questions (FAQ)</h2>
+    <Faq items={faqItems} />
+  </section>
+</Base>

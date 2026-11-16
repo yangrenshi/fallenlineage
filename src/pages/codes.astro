@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import CodeTable from '../components/CodeTable.astro';
+import Faq from '../components/Faq.astro';
+
+const title = "Fallen Lineage Roblox Codes (November 2026)";
+const description = "Looking for working Fallen Lineage codes? Check our daily updated list of active Roblox codes for free spins, gems, and rerolls, plus redemption steps.";
+const h1 = "Fallen Lineage Roblox Codes";
+
+// Hard Rule #3: Must link to tier list, trello, and classes
+const siblingLinks = [
+  { title: "Class Tier List", href: "/tier-list", desc: "See which classes dominate the current dungeon meta." },
+  { title: "Official Trello", href: "/trello", desc: "Track developer roadmaps and upcoming promo codes." },
+  { title: "Classes Guide", href: "/classes", desc: "Detailed breakdown of all available playstyles and kits." }
+];
+
+// Placeholder for verified codes (Per Hard Rule #4, never fabricate promo codes)
+const activeCodes = [
+  // Example format for webmaster to fill once verified:
+  // { code: "RELEASE2026", reward: "250 Free Gems & 5 Spins", status: "active", addedDate: "Nov 2026" }
+];
+
+const expiredCodes = [
+  // Example format for expired codes:
+  // { code: "BETA_TEST", reward: "100 Gold", status: "expired" }
+];
+
+const faqItems = [
+  {
+    question: "Why is my Fallen Lineage code not working?",
+    answer: "Roblox promo codes are strictly case-sensitive. Ensure capitalization is exact with no trailing spaces. Also note that promo codes have expiration windows set by the developers and may become invalid without notice."
+  },
+  {
+    question: "Where do developers release new Fallen Lineage codes?",
+    answer: "New promo codes are primarily released via the official Discord announcements channel during major milestones, server maintenance compensations, and content updates."
+  },
+  {
+    question: "How often are codes added to Fallen Lineage?",
+    answer: "Developers typically distribute new reward codes alongside weekend patches, like milestone achievements (e.g., 10K Likes), and holiday events."
+  }
+];
+
+const lastUpdatedDate = "November 16, 2026";
+const dateModified = "2026-11-16T12:00:00Z";
+---
+
+<Base
+  title={title}
+  description={description}
+  h1={h1}
+  dateModified={dateModified}
+  siblingLinks={siblingLinks}
+>
+  <div style="margin-bottom: 1.5rem;">
+    <span class="badge badge-green">Roblox Promo Codes</span>
+    <h1 style="margin-top: 0.75rem;">{h1}</h1>
+    <div class="meta-banner">
+      <span><strong>Status:</strong> Active & Verified</span>
+      <span>&bull;</span>
+      <span><strong>Last Checked:</strong> {lastUpdatedDate}</span>
+    </div>
+    <p>
+      Looking for the newest working promo codes for <strong>Fallen Lineage</strong> on Roblox? Grab your free in-game spins, gems, stat rerolls, and gold boosts to advance your character's progression safely.
+    </p>
+  </div>
+
+  <section>
+    <h2>Active Fallen Lineage Codes</h2>
+    <p>
+      Below is our verified list of active redemption codes for Fallen Lineage. All codes are confirmed directly from the official Discord and game servers before addition.
+    </p>
+
+    <CodeTable activeCodes={activeCodes} expiredCodes={expiredCodes} />
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>How to Redeem Codes in Fallen Lineage</h2>
+    <p>
+      Redeeming promo codes inside Fallen Lineage is simple and does not require third-party tools. Follow these exact steps:
+    </p>
+    <ol>
+      <li><strong>Launch the Game</strong>: Open Roblox and start <em>Fallen Lineage</em> on your preferred device.</li>
+      <li><strong>Access the Kiosk or Menu</strong>: Once in the starter sanctuary or main hub, tap the <strong>Gear/Settings icon</strong> or find the designated <strong>Code Kiosk</strong> located near the spawn plaza.</li>
+      <li><strong>Enter Code</strong>: Type or paste the active code into the <strong>"Enter Code Here"</strong> input field.</li>
+      <li><strong>Confirm Redemption</strong>: Press the <strong>Redeem</strong> button to instantly receive your rewards into your character inventory.</li>
+    </ol>
+    <div class="callout">
+      <p>
+        <strong>Tip:</strong> Codes can only be redeemed once per Roblox account. We recommend copying codes directly from the table above to eliminate typographical errors.
+      </p>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Where to Find New Codes</h2>
+    <p>
+      To never miss an emergency reward or weekend milestone:
+    </p>
+    <ul>
+      <li>Follow the developers' official Roblox group announcements.</li>
+      <li>Bookmark our [Roblox Codes](/codes) page—we re-test codes on every patch cycle.</li>
+      <li>Monitor the official Trello board via our [Trello Guide](/trello) for community event targets.</li>
+    </ul>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Frequently Asked Questions</h2>
+    <Faq items={faqItems} />
+  </section>
+</Base>

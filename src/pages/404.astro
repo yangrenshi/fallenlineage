@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = "Page Not Found – Fallen Lineage Wiki";
+const description = "The requested page could not be found. Explore Fallen Lineage codes, tier lists, class guides, and official resources from our main directory.";
+const h1 = "404 - Page Not Found";
+
+const siblingLinks = [
+  { title: "Wiki Homepage", href: "/", desc: "Return to the main directory." },
+  { title: "Roblox Codes", href: "/codes", desc: "Check current active promo rewards." },
+  { title: "Class Tier List", href: "/tier-list", desc: "View meta rankings for all classes." }
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  h1={h1}
+  siblingLinks={siblingLinks}
+>
+  <div style="text-align: center; padding: 4rem 1rem;">
+    <span class="badge badge-amber" style="font-size: 0.9rem; padding: 0.3rem 0.8rem;">Dungeon Error</span>
+    <h1 style="font-size: 3rem; margin-top: 1rem; margin-bottom: 0.5rem;">404</h1>
+    <h2 style="border: none; margin-top: 0; font-size: 1.5rem; color: var(--text-primary);">Lost in the Crypts</h2>
+    <p style="max-width: 500px; margin: 1rem auto 2rem auto; font-size: 1.05rem;">
+      The scroll or chamber you are looking for has crumbled or relocated. Choose a verified sanctuary portal below:
+    </p>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/" class="btn btn-primary">Return to Homepage &rarr;</a>
+      <a href="/codes" class="btn btn-secondary">Browse Roblox Codes &rarr;</a>
+      <a href="/tier-list" class="btn btn-secondary">View Tier List &rarr;</a>
+    </div>
+  </div>
+</Base>

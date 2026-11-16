@@ -1,0 +1,45 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { label: 'Codes', href: '/codes' },
+  { label: 'Tier List', href: '/tier-list' },
+  { label: 'Classes', href: '/classes' },
+  { label: 'Trello', href: '/trello' },
+  { label: 'Beginner Guide', href: '/guides/beginner' },
+  { label: 'Updates', href: '/updates' }
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="site-logo" aria-label="Fallen Lineage Wiki Home">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="14" fill="#131722" />
+        <path d="M32 8L50 18V34C50 45.0457 42.4414 54.7617 32 58C21.5586 54.7617 14 45.0457 14 34V18L32 8Z" fill="#181d2c" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M32 15V45M24 25H40M27 49L32 54L37 49" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="32" cy="25" r="3" fill="#fbbf24"/>
+      </svg>
+      <span>Fallen Lineage Wiki</span>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

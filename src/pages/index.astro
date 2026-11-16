@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = "Fallen Lineage Wiki – Classes, Codes, Tier List & Guides";
+const description = "Discover Fallen Lineage on Roblox. Explore our comprehensive wiki featuring working codes, class tier lists, official Trello boards, and beginner guides.";
+const h1 = "Fallen Lineage Wiki";
+
+const siblingLinks = [
+  { title: "Roblox Codes", href: "/codes", desc: "Get active promo codes and free rewards." },
+  { title: "Class Tier List", href: "/tier-list", desc: "Meta rankings from S to B tier." },
+  { title: "All Classes", href: "/classes", desc: "Detailed playstyles, roles, and kits." },
+  { title: "Official Trello", href: "/trello", desc: "Board guide and roadmap directory." }
+];
+---
+
+<Base
+  title={title}
+  description={description}
+  h1={h1}
+  type="website"
+  siblingLinks={siblingLinks}
+>
+  <div style="margin-bottom: 2rem;">
+    <span class="badge badge-amber">Community Wiki & Resource Hub</span>
+    <h1 style="margin-top: 0.75rem;">{h1}</h1>
+    <p style="font-size: 1.15rem; color: var(--text-primary); max-width: 800px;">
+      Your definitive, community-driven database for the turn-based roguelite RPG experience on Roblox.
+    </p>
+  </div>
+
+  <section>
+    <h2>What is Fallen Lineage?</h2>
+    <p>
+      <strong>Fallen Lineage</strong> is a hardcore, turn-based roguelite role-playing game on Roblox that blends tactical round-based strategy with deep character progression, permadeath dungeon mechanics, and challenging boss encounters. Unlike fast-paced hack-and-slash titles, Fallen Lineage rewards calculated turn planning, elemental synergy, and defensive counter-play.
+    </p>
+    <p>
+      Whether you are embarking on your very first expedition into the subterranean crypts or optimizing a high-tier endgame character build, this wiki gathers every crucial game system—from up-to-date codes to in-depth class rankings—into one fast, clean, ad-free resource.
+    </p>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Core Database Navigation</h2>
+    <p>Select a portal below to access official references, mechanics, and guides:</p>
+    
+    <div class="grid grid-cols-2" style="margin-top: 1.25rem;">
+      <a href="/codes" class="card" style="text-decoration: none;">
+        <div class="card-title">
+          <span>Roblox Codes</span>
+          <span class="badge badge-green">Updated</span>
+        </div>
+        <p>Verified promotional codes offering free spins, gems, rerolls, and gold rewards.</p>
+        <span class="btn btn-secondary" style="font-size: 0.825rem; width: fit-content;">View Active Codes &rarr;</span>
+      </a>
+
+      <a href="/tier-list" class="card" style="text-decoration: none;">
+        <div class="card-title">
+          <span>Class Tier List</span>
+          <span class="badge badge-amber">Meta</span>
+        </div>
+        <p>Comprehensive S/A/B tier rankings analyzing solo dungeon speed and boss viability.</p>
+        <span class="btn btn-secondary" style="font-size: 0.825rem; width: fit-content;">Check Class Rankings &rarr;</span>
+      </a>
+
+      <a href="/classes" class="card" style="text-decoration: none;">
+        <div class="card-title">
+          <span>Classes Directory</span>
+          <span class="badge badge-amber">Guides</span>
+        </div>
+        <p>In-depth breakdowns of combat roles, skill trees, playstyles, and target builds.</p>
+        <span class="btn btn-secondary" style="font-size: 0.825rem; width: fit-content;">Explore Archetypes &rarr;</span>
+      </a>
+
+      <a href="/trello" class="card" style="text-decoration: none;">
+        <div class="card-title">
+          <span>Official Trello</span>
+          <span class="badge badge-amber">Official</span>
+        </div>
+        <p>Column-by-column breakdown of developer cards, planned updates, and official boards.</p>
+        <span class="btn btn-secondary" style="font-size: 0.825rem; width: fit-content;">Access Board Guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Recent Game Updates & Highlights</h2>
+    <p>
+      Stay informed on the latest mechanics, balance adjustments, and patch changes in Fallen Lineage:
+    </p>
+    <div class="callout callout-info">
+      <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--text-primary);">Latest Version: Update v1.0.4</h3>
+      <p style="margin-bottom: 0.5rem;">
+        Balance revisions across elemental caster and vanguard trees, improved solo dungeon scaling, and newly introduced community milestone rewards.
+      </p>
+      <a href="/updates" style="font-weight: 600; font-size: 0.9rem;">Read Full Patch Notes &rarr;</a>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>New to the Game?</h2>
+    <p>
+      Fallen Lineage can be unforgiving for newcomers. Learn how to navigate your first hour, master turn economy, and avoid costly early build mistakes by reading our dedicated walkthrough:
+    </p>
+    <p>
+      <a href="/guides/beginner" class="btn btn-primary">Open Beginner's Starter Guide &rarr;</a>
+    </p>
+  </section>
+</Base>

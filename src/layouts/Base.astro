@@ -1,0 +1,112 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  h1?: string;
+  type?: 'website' | 'article';
+  datePublished?: string;
+  dateModified?: string;
+  siblingLinks?: Array<{ title: string; href: string; desc: string }>;
+}
+
+const {
+  title,
+  description,
+  h1,
+  type = 'article',
+  datePublished = '2026-11-01T00:00:00Z',
+  dateModified = '2026-11-16T12:00:00Z',
+  siblingLinks = []
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const cleanPath = pathname === '/' ? '' : pathname.replace(/\/+$/, '');
+const canonicalURL = `https://fallenlineage.org${cleanPath}`;
+const isHome = pathname === '/' || pathname === '';
+
+const schemaData = isHome
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Fallen Lineage Wiki',
+      url: 'https://fallenlineage.org',
+      description: description
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: h1 || title,
+      description: description,
+      url: canonicalURL,
+      datePublished: datePublished,
+      dateModified: dateModified,
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonicalURL
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Fallen Lineage Wiki',
+        url: 'https://fallenlineage.org'
+      }
+    };
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={isHome ? 'website' : 'article'} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Fallen Lineage Wiki" />
+    <meta property="og:image" content="https://fallenlineage.org/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://fallenlineage.org/favicon.svg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body>
+    <Header currentPath={cleanPath || '/'} />
+    <main>
+      <div class="container">
+        <slot />
+
+        {siblingLinks.length > 0 && (
+          <aside class="sibling-nav">
+            <h2 class="sibling-nav-title">Related Fallen Lineage Resources</h2>
+            <div class="sibling-grid">
+              {siblingLinks.map((link) => (
+                <a href={link.href} class="sibling-card">
+                  <strong>{link.title}</strong>
+                  <span>{link.desc}</span>
+                </a>
+              ))}
+            </div>
+          </aside>
+        )}
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
