@@ -1,6 +1,6 @@
 # Fallen Lineage Roblox Codes Guide
 
-Active and tested redemption codes for Fallen Lineage on Roblox. Check back regularly after server maintenance and game patches.
+Active redemption codes for Fallen Lineage on Roblox reported working by community players. Check back regularly after server maintenance and game patches.
 
 ## Active Codes (November 2026)
 
@@ -21,5 +21,5 @@ Active and tested redemption codes for Fallen Lineage on Roblox. Check back regu
 ## Where to Find More Codes
 
 - **Roblox Group Announcements**: Follow developer updates directly on the official Roblox game page.
-- **Bookmark This Page**: We test and refresh codes after unexpected shutdowns and weekly patches.
+- **Bookmark This Page**: We track and refresh codes reported working after unexpected shutdowns and weekly patches.
 - **Trello Cards**: Check community milestone reward targets on the official board.
