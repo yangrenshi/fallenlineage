@@ -16,36 +16,48 @@ const lastUpdatedDate = "November 16, 2026";
 const classesList = [
   {
     name: "Warrior",
+    badgeClass: "badge-warrior",
+    icon: "🛡️",
     role: "Frontline Tank / Melee Brawler",
     style: "Specializes in high physical durability, guarding stances, and counter-attacks. Absorbs heavy blows to protect party members and grind down opposing mobs.",
     bestFor: "Players who prefer dependable survivability, forgiving margins, and direct melee combat."
   },
   {
     name: "Rogue",
+    badgeClass: "badge-rogue",
+    icon: "🗡️",
     role: "Agile Assassin / Single-Target DPS",
     style: "Focuses on speed, evasion, and rapid multi-hit strikes. Builds combo rhythm to execute high-impact critical hits against priority targets before they can retaliate.",
     bestFor: "Tacticians who enjoy fast turn rotations, risk-reward timing, and single-target boss bursting."
   },
   {
     name: "Mage",
+    badgeClass: "badge-mage",
+    icon: "🔮",
     role: "Ranged Caster / AoE Damage",
     style: "Channels elemental spells to hit multiple enemy targets at once. Offers superior room-clearing capabilities balanced by lower baseline physical defense.",
     bestFor: "Players focused on sweeping mob waves efficiently and exploiting elemental weaknesses."
   },
   {
     name: "Lancer",
+    badgeClass: "badge-lancer",
+    icon: "⚡",
     role: "Piercing Fighter / Mid-Range Melee",
     style: "Utilizes polearm thrusts with extended reach. Balances offensive piercing pressure with defensive positioning, breaking through enemy armor ratings.",
     bestFor: "Fighters who want a balance of offensive reach, crowd control stabs, and sturdy resilience."
   },
   {
     name: "Bard",
+    badgeClass: "badge-bard",
+    icon: "🎵",
     role: "Party Buffer / Turn Support",
     style: "Enhances team performance through melody buffs, initiative manipulation, and stat boosts. Keeps teammates acting faster and recovering between intense rounds.",
     bestFor: "Co-op players and strategists who excel at buff management and party force multiplication."
   },
   {
     name: "Archer",
+    badgeClass: "badge-archer",
+    icon: "🏹",
     role: "Ranged Marksman / Physical DPS",
     style: "Delivers precision ranged attacks with bows and arrows. Keeps distance from lethal melee boss strikes while continuously applying steady physical damage.",
     bestFor: "Players who enjoy kiting mechanics, steady ranged physical DPS, and safe distance engagement."
@@ -80,14 +92,27 @@ const classesList = [
 
     <div class="grid grid-cols-2" style="margin-top: 1.5rem;">
       {classesList.map((item) => (
-        <div class="card">
-          <div class="card-title">
-            <span>{item.name}</span>
-            <span class="badge badge-amber">{item.name}</span>
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="card-title" style="align-items: center;">
+              <span style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem;">
+                <span>{item.icon}</span>
+                <span>{item.name}</span>
+              </span>
+              <span class={`badge ${item.badgeClass}`}>{item.name}</span>
+            </div>
+            <p style="margin-top: 0.75rem; margin-bottom: 0.5rem;">
+              <strong style="color: var(--accent-amber-light);">Combat Role:</strong> {item.role}
+            </p>
+            <p style="margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+              <strong style="color: var(--text-primary);">Playstyle:</strong> {item.style}
+            </p>
           </div>
-          <p><strong>Combat Role:</strong> {item.role}</p>
-          <p><strong>Playstyle:</strong> {item.style}</p>
-          <p style="margin-bottom: 0;"><strong>Best For:</strong> {item.bestFor}</p>
+          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-subtle);">
+            <p style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-muted);">
+              <strong style="color: var(--accent-amber);">Best For:</strong> {item.bestFor}
+            </p>
+          </div>
         </div>
       ))}
     </div>

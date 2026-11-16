@@ -14,12 +14,12 @@ const siblingLinks = [
 const lastUpdatedDate = "November 16, 2026";
 
 const classesStatus = [
-  { name: "Warrior", role: "Tank / Frontline Melee", status: "Pending Verification", note: "Testing solo clear stability and damage mitigation." },
-  { name: "Rogue", role: "Single-Target Assassin", status: "Pending Verification", note: "Testing boss burst efficiency and evasion scaling." },
-  { name: "Mage", role: "AoE Elemental Caster", status: "Pending Verification", note: "Testing wave clear times across mid-tier dungeons." },
-  { name: "Lancer", role: "Armor Piercer / Reach Melee", status: "Pending Verification", note: "Testing armor penetration against armored elites." },
-  { name: "Bard", role: "Party Buffer / Turn Support", status: "Pending Verification", note: "Testing co-op party force multiplier and speed buffs." },
-  { name: "Archer", role: "Ranged Physical DPS", status: "Pending Verification", note: "Testing kiting safety and ranged single-target DPR." }
+  { name: "Warrior", icon: "🛡️", badgeClass: "badge-warrior", role: "Tank / Frontline Melee", status: "Pending Verification", note: "Testing solo clear stability and damage mitigation." },
+  { name: "Rogue", icon: "🗡️", badgeClass: "badge-rogue", role: "Single-Target Assassin", status: "Pending Verification", note: "Testing boss burst efficiency and evasion scaling." },
+  { name: "Mage", icon: "🔮", badgeClass: "badge-mage", role: "AoE Elemental Caster", status: "Pending Verification", note: "Testing wave clear times across mid-tier dungeons." },
+  { name: "Lancer", icon: "⚡", badgeClass: "badge-lancer", role: "Armor Piercer / Reach Melee", status: "Pending Verification", note: "Testing armor penetration against armored elites." },
+  { name: "Bard", icon: "🎵", badgeClass: "badge-bard", role: "Party Buffer / Turn Support", status: "Pending Verification", note: "Testing co-op party force multiplier and speed buffs." },
+  { name: "Archer", icon: "🏹", badgeClass: "badge-archer", role: "Ranged Physical DPS", status: "Pending Verification", note: "Testing kiting safety and ranged single-target DPR." }
 ];
 ---
 
@@ -63,14 +63,21 @@ const classesStatus = [
         <tbody>
           {classesStatus.map((c) => (
             <tr>
-              <td><strong>{c.name}</strong></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <span>{c.icon}</span>
+                  <strong>{c.name}</strong>
+                  <span class={`badge ${c.badgeClass}`} style="font-size: 0.75rem; padding: 0.15rem 0.5rem;">{c.name}</span>
+                </div>
+              </td>
               <td>{c.role}</td>
               <td>
-                <span class="badge" style="background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3);">
+                <span class="badge badge-amber" style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem;">
+                  <span style="display: inline-block; width: 6px; height: 6px; border-radius: 9999px; background: var(--accent-amber); animation: pulse 2s infinite;"></span>
                   {c.status}
                 </span>
               </td>
-              <td>{c.note}</td>
+              <td style="color: var(--text-secondary); font-size: 0.925rem;">{c.note}</td>
             </tr>
           ))}
         </tbody>
@@ -84,29 +91,40 @@ const classesStatus = [
       Once rankings are populated, each class is evaluated using three strict benchmark metrics:
     </p>
 
-    <div class="card" style="margin-bottom: 1.25rem;">
-      <h3 style="margin-top: 0; color: var(--accent-amber-light);">1. Damage Per Round (DPR) & Clear Speed</h3>
-      <p>
-        How quickly an archetype can clear standard mob chambers without dragging battles into prolonged cycles where mistakes become lethal.
-      </p>
-    </div>
+    <div class="grid grid-cols-3" style="margin-top: 1.5rem; gap: 1rem;">
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;">⚡</span>
+          <h3 style="margin-top: 0; color: var(--accent-amber-light); font-size: 1.1rem;">1. DPR & Clear Speed</h3>
+          <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            How swiftly an archetype clears standard mob chambers without letting encounters drag into lethal fatigue cycles.
+          </p>
+        </div>
+      </div>
 
-    <div class="card" style="margin-bottom: 1.25rem;">
-      <h3 style="margin-top: 0; color: #34d399;">2. Survivability & Resource Economy</h3>
-      <p>
-        The ability of a class to sustain health and energy across sequential dungeon floors without depleting emergency consumable vaults.
-      </p>
-    </div>
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;">🛡️</span>
+          <h3 style="margin-top: 0; color: #34d399; font-size: 1.1rem;">2. Survivability & Economy</h3>
+          <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            The archetype's ability to maintain high health and resource stability across multi-floor dungeon crawls without burn.
+          </p>
+        </div>
+      </div>
 
-    <div class="card">
-      <h3 style="margin-top: 0; color: #cbd5e1;">3. Boss Raid Viability</h3>
-      <p>
-        Effectiveness when facing elite floor bosses that possess special turn triggers, stun resistance, and high-damage phases.
-      </p>
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;">💀</span>
+          <h3 style="margin-top: 0; color: #f87171; font-size: 1.1rem;">3. Boss Raid Viability</h3>
+          <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            Direct single-target execution against elite bosses possessing stun counters, enrage timers, and high-damage phases.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section style="margin-top: 3rem;">
+  <section style="margin-top: 3.5rem;">
     <h2>Tier List vs. Classes Guide: Key Differences</h2>
     <p>
       We maintain a strict boundary between our ranking comparisons and mechanical walkthroughs:
@@ -120,10 +138,10 @@ const classesStatus = [
     </p>
   </section>
 
-  <section style="margin-top: 3rem;">
+  <section style="margin-top: 3.5rem;">
     <h2>Recent Balance Status</h2>
     <p>
-      With recent server restarts and adjustments rolling out on Roblox, class damage curves are being re-benchmarked. Check our <a href="/trello">Trello Guide</a> to view direct developer development cards, or visit our <a href="/updates">Updates</a> page for official patch records.
+      With recent server restarts and adjustments rolling out on Roblox, class damage curves are being re-benchmarked. Check our <a href="/trello">Community & Trello Notice</a> for official developer channels, or visit our <a href="/updates">Updates</a> page for official patch records.
     </p>
   </section>
 </Base>

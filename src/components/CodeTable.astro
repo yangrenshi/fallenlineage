@@ -98,16 +98,23 @@ const { activeCodes = [], expiredCodes = [] } = Astro.props;
 </div>
 
 <script>
-  // Pure lightweight native copy logic
+  // Pure lightweight native copy logic with visual feedback
   document.querySelectorAll('.btn-copy').forEach((button) => {
     button.addEventListener('click', () => {
       const code = button.getAttribute('data-code');
+      const btn = button as HTMLElement;
       if (code) {
         navigator.clipboard.writeText(code).then(() => {
-          const originalText = button.textContent;
-          button.textContent = 'Copied!';
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied ✓';
+          btn.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
+          btn.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+          btn.style.color = '#34d399';
           setTimeout(() => {
-            button.textContent = originalText;
+            btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
           }, 1800);
         });
       }
