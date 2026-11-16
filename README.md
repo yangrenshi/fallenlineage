@@ -59,16 +59,8 @@ npm run preview
 ## Deployment Steps (Vercel + Cloudflare)
 
 1. **GitHub**:
-   ```bash
-   cd fallenlineage
-   git init
-   git add .
-   git commit -m "feat: initial commit for fallenlineage wiki"
-   git branch -M main
-   # Add your remote and push
-   git remote add origin <your-github-repo-url>
-   git push -u origin main
-   ```
+   - Repository URL: [https://github.com/yangrenshi/fallenlineage](https://github.com/yangrenshi/fallenlineage)
+   - Default Branch: `main`
 2. **Vercel**:
    - Go to Vercel Dashboard -> **Add New -> Project** -> Import repository.
    - Framework preset automatically detects **Astro**.
