@@ -100,6 +100,12 @@ const schemaData = isHome
         data-website-id={import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || process.env.PUBLIC_UMAMI_WEBSITE_ID}
       />
     )}
+    <!-- PVUV.ai 流量统计（内置 Bot 识别与清洗） -->
+    <script
+      defer
+      src="https://in.pvuv.ai/f.js"
+      data-site={import.meta.env.PUBLIC_PVUV_SITE_ID || process.env.PUBLIC_PVUV_SITE_ID || "cAowTXWz"}
+    ></script>
   </head>
   <body>
     <Header currentPath={cleanPath || '/'} />
