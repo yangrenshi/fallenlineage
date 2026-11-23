@@ -1,0 +1,40 @@
+name: Daily Rebuild & Freshness
+
+on:
+  schedule:
+    # Runs everyday at 00:00 UTC (08:00 AM Beijing Time)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  daily-rebuild:
+    name: Trigger Daily Automated Freshness
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Trigger Vercel Deploy Hook or Commit Ping
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
+            echo "Triggering Vercel rebuild via Deploy Hook..."
+            curl -X POST "$VERCEL_DEPLOY_HOOK"
+            echo "Deploy hook sent successfully."
+          else
+            echo "No VERCEL_DEPLOY_HOOK secret detected. Triggering rebuild via repository ping commit..."
+            mkdir -p .github
+            date -u +"%Y-%m-%d %H:%M:%S UTC" > .github/daily-ping.txt
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add .github/daily-ping.txt
+            git commit -m "chore(cron): automated daily build freshness $(date -u +'%Y-%m-%d')" || exit 0
+            git push
+            echo "Ping commit pushed to main branch. Vercel deployment triggered."
+          fi

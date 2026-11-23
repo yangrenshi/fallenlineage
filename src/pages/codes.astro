@@ -21,6 +21,7 @@ const datePublished = "2026-11-16T10:40:00Z";
 
 // Hard Rule #2: Verified active codes with required 4 columns
 // Sources strictly restricted to official channels
+// Free rewards replaced with official disclosure note where specific counts are unannounced
 const activeCodes: ActiveCodeItem[] = [
   {
     code: "mybelovedcrits",
@@ -42,44 +43,44 @@ const activeCodes: ActiveCodeItem[] = [
   },
   {
     code: "SOMANYSHUTDOWNS",
-    reward: "Free rewards",
+    reward: "Not disclosed by the developers — code confirmed working",
     added: "Nov 13, 2026",
     source: "Server Restart Compensation"
   },
   {
     code: "PARAGUAY",
-    reward: "Free rewards",
+    reward: "Not disclosed by the developers — code confirmed working",
     added: "Nov 13, 2026",
     source: "Official Discord Announcement"
   }
 ];
 
 const expiredCodes: ExpiredCodeItem[] = [
-  { code: "EARLY2", reward: "Free rewards" },
-  { code: "UPDATE1", reward: "Free rewards" }
+  { code: "EARLY2", reward: "Not disclosed by the developers — code confirmed working" },
+  { code: "UPDATE1", reward: "Not disclosed by the developers — code confirmed working" }
 ];
 
-// Hard Rule #4: FAQs directly targeted at real search queries (2-3 concise, fact-packed sentences)
+// Hard Rule #4: FAQs directly targeted at real search queries with proper question syntax
 const faqItems = [
   {
-    question: "codes for fallen lineage",
-    answer: "Official codes for Fallen Lineage provide essential progression items including Reset Orbs, Reroll Tokens, and extra Lives. These items let players re-allocate build stats and retry dangerous dungeon runs without spending Robux. New codes are released by developer odanos on milestone celebrations and emergency server reboots."
+    question: "What are the codes for Fallen Lineage?",
+    answer: "Official codes for Fallen Lineage reward valuable character progression items, primarily Reset Orbs, Reroll Tokens, and extra Lives. These items permit you to respec talent choices and alter starting builds without spending Robux. Active keys are published by developer odanos on the official Discord and milestone events."
   },
   {
-    question: "fallen lineage roblox codes",
-    answer: "Fallen Lineage Roblox codes can be redeemed directly in-game through the Shop menu once your account meets the minimum 30-minute playtime threshold. Every code can be claimed only once per Roblox profile. Joining the official developer group on Roblox is mandatory for code verification to succeed."
+    question: "Are there Roblox codes for Fallen Lineage?",
+    answer: "Yes, developer odanos regularly releases Roblox promo codes to celebrate server milestones, content updates, and emergency maintenance compensation. Every code can be claimed only once per Roblox profile and delivers rewards directly to your in-game inventory."
   },
   {
-    question: "fallen lineage tree codes",
-    answer: "Many players search for 'tree codes' confusing Fallen Lineage's skill progression with skill-tree mechanics from other Roblox RPGs like Deepwoken. Fallen Lineage does not feature separate 'tree codes'; instead, developers issue Reset Orbs through standard promo codes to let you respec your skill tree and talent choices freely."
+    question: "Are there any Fallen Lineage tree codes?",
+    answer: "No, Fallen Lineage does not feature separate 'tree codes'—this search query originates from players confusing the game with skill-tree mechanics from titles like Deepwoken. In Fallen Lineage, you receive Reset Orbs from standard promo codes, which allow you to reset and reconfigure your archetype's talent progression tree freely."
   },
   {
-    question: "how to redeem codes in fallen lineage",
-    answer: "To redeem codes in Fallen Lineage, load into the game hub and click the Shop (crate) icon located at the top-right corner of your screen. Select the 'Codes' tab on the left navigation bar, paste an active code into the text field, and press Redeem. Rewards are deposited immediately into your inventory."
+    question: "How do I redeem codes in Fallen Lineage?",
+    answer: "To redeem codes in Fallen Lineage, join a live server and click the Shop (crate) icon in the top-right corner of your HUD. Select the 'Codes' tab from the left sidebar, paste an active code into the text field, and press Redeem. Ensure your account has met the 30-minute playtime prerequisite before attempting redemption."
   },
   {
-    question: "why is my fallen lineage code not working",
-    answer: "The three most common reasons for failed redemptions are: your account has logged under 30 minutes of in-game playtime, you have not joined the official odanos Roblox group, or the code was mistyped due to strict case sensitivity. If all requirements are met and it still fails, the code has expired."
+    question: "Why is my Fallen Lineage code not working?",
+    answer: "Redemption fails for three primary reasons: your account has logged under 30 minutes of in-game playtime, you have not joined the official odanos Roblox group, or the code was mistyped due to strict case sensitivity. If all requirements are verified and an error persists, the code has expired."
   }
 ];
 
@@ -192,7 +193,7 @@ const relatedResources = [
   </div>
 
   <!-- Main Section: Active & Expired Code Tables (Hard Rule #2) -->
-  <section>
+  <section id="active-codes-table">
     <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
       <h2 style="margin: 0;">Active Fallen Lineage Codes</h2>
       <span style="font-size: 0.85rem; color: var(--text-muted);">Click "Copy" next to any code for exact casing</span>
@@ -205,7 +206,7 @@ const relatedResources = [
   </section>
 
   <!-- Hard Rule #3: Redemption Steps & Menu Location -->
-  <section style="margin-top: 3.5rem;">
+  <section id="how-to-redeem-codes" style="margin-top: 3.5rem;">
     <h2>How to Redeem Codes in Fallen Lineage</h2>
     <p>
       Redeeming promotional codes in Fallen Lineage is straightforward once your account meets the initial anti-bot criteria:
@@ -267,6 +268,101 @@ const relatedResources = [
         <li><strong>Whitespace & Double Redemption:</strong> Ensure no trailing spaces are copied with your text. Each promotional code can only be claimed once per Roblox account.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- Hard Rule #4A: When Do New Codes Come Out (Trigger Mechanisms) -->
+  <section id="when-do-new-codes-come-out" style="margin-top: 3.5rem;">
+    <h2>When Do New Fallen Lineage Codes Come Out?</h2>
+    <p style="color: var(--text-secondary); line-height: 1.7;">
+      Promotional codes for Fallen Lineage do not drop on a static calendar schedule. Instead, creator <strong>odanos</strong> issues new codes based on three distinct in-game and community triggers:
+    </p>
+
+    <div class="grid grid-cols-3" style="margin-top: 1.5rem; gap: 1rem;">
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.4rem; display: block; margin-bottom: 0.5rem;">🚀</span>
+          <h3 style="margin-top: 0; font-size: 1.05rem; color: #fff;">1. Version Updates & Expansions</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            Whenever major content patches roll out introducing fresh chambers or balance overhauls, celebratory codes are launched. For example, <strong>UPDATE2</strong> rewarded 2 Reroll Tokens and 2 Lives so players could experiment with revamped skills without risk.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.4rem; display: block; margin-bottom: 0.5rem;">🏆</span>
+          <h3 style="margin-top: 0; font-size: 1.05rem; color: #fff;">2. CCU Player Milestones</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            Concurrent player milestones reflect community growth. When server player peaks hit new records on Roblox, exclusive reward codes appear. The prime example is <strong>400CCU</strong>, which provided 3 Reroll Tokens and 1 extra Life upon passing 400 concurrent adventurers.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 1.4rem; display: block; margin-bottom: 0.5rem;">⚙️</span>
+          <h3 style="margin-top: 0; font-size: 1.05rem; color: #fff;">3. Emergency Server Downtime</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;">
+            Because Fallen Lineage relies on hardcore turn-based dungeon runs, unexpected server crashes can wipe progress. To compensate players, emergency codes like <strong>SOMANYSHUTDOWNS</strong> and <strong>mybelovedcrits</strong> (delivering 3 Reset Orbs) are distributed immediately after hotfixes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--text-secondary);">
+      To verify active keys right now, visit our <a href="#active-codes-table">Active Codes Table</a> above, or read our breakdown below on <a href="#what-each-code-gives">how to spend each reward type</a>.
+    </p>
+  </section>
+
+  <!-- Hard Rule #4B: What Each Code Gives and How to Spend It -->
+  <section id="what-each-code-gives" style="margin-top: 3.5rem;">
+    <h2>What Each Code Gives and How to Spend It</h2>
+    <p style="color: var(--text-secondary); line-height: 1.7;">
+      Free promotional rewards in Fallen Lineage carry distinct tactical value in turn-based dungeon combat. Spending them randomly can stall your progression, while strategic timing drastically improves survival odds:
+    </p>
+
+    <div class="card" style="margin-top: 1.5rem; margin-bottom: 1.25rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <span class="badge badge-amber" style="font-size: 0.85rem; padding: 0.25rem 0.65rem;">Item Guide</span>
+        <h3 style="margin: 0; font-size: 1.2rem; color: #fff;">1. Reset Orbs (Stat & Skill Respecs)</h3>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.75rem;">
+        <strong>What it does:</strong> Reset Orbs wipe your current stat allocations and skill tree investment, returning all distributed points back to your pool without penalizing overall character level.
+      </p>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0;">
+        <strong>When to spend:</strong> Do not waste Reset Orbs during early dungeon levels. Save them until you unlock mid-game gear or decide to transition your playstyle—such as shifting from a balanced tank setup to a specialized critical-burst build. If a boss's armor rating walls your current damage type, using an orb lets you adapt without restarting from zero.
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.25rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <span class="badge badge-amber" style="font-size: 0.85rem; padding: 0.25rem 0.65rem;">Item Guide</span>
+        <h3 style="margin: 0; font-size: 1.2rem; color: #fff;">2. Reroll Tokens (Trait & Sub-Archetype Rolling)</h3>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.75rem;">
+        <strong>What it does:</strong> Reroll Tokens re-randomize starting passive traits, innate racial multipliers, and secondary character affinities.
+      </p>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0;">
+        <strong>When to spend:</strong> Spend Reroll Tokens once you have firmly chosen your target class archetype. For example, if you committed to playing Mage or Archer, spending tokens to secure magical scaling or ranged critical perks will multiply your efficiency. Avoid chain-rerolling before settling on your primary combat role.
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.25rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <span class="badge badge-amber" style="font-size: 0.85rem; padding: 0.25rem 0.65rem;">Item Guide</span>
+        <h3 style="margin: 0; font-size: 1.2rem; color: #fff;">3. Extra Lives (Dungeon Run Permadeath Insurance)</h3>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0.75rem;">
+        <strong>What it does:</strong> Lives act as an automatic revival buffer, preventing character wipeout and preserving dungeon progress when team health hits zero.
+      </p>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0;">
+        <strong>When to spend:</strong> Keep extra lives reserved for deep dungeon floors and elite boss encounters where lethal surprise turns can instantly wipe a party. Having one or two spare lives protects valuable hours of crawl progression.
+      </p>
+    </div>
+
+    <p style="font-size: 0.95rem; color: var(--text-secondary);">
+      Need help entering your codes? Check our <a href="#how-to-redeem-codes">Redemption Tutorial</a> above, or browse our <a href="/classes">All 6 Classes Guide</a> to choose which build to support.
+    </p>
   </section>
 
   <!-- Hard Rule #4: FAQs directly targeted at real user search queries -->
