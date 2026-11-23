@@ -14,8 +14,8 @@ Active redemption codes for Fallen Lineage on Roblox reported working by communi
 
 ## Expired Codes Archive
 
-- `EARLY2` - Free rewards
-- `UPDATE1` - Free rewards
+- `EARLY2` - Not disclosed by the developers
+- `UPDATE1` - Not disclosed by the developers
 
 ## How to Redeem Codes in Fallen Lineage
 

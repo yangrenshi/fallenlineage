@@ -2,8 +2,8 @@ name: Daily Rebuild & Freshness
 
 on:
   schedule:
-    # Runs everyday at 00:00 UTC (08:00 AM Beijing Time)
-    - cron: '0 0 * * *'
+    # Runs everyday at 00:10 UTC (08:10 AM Beijing Time)
+    - cron: '10 0 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:
