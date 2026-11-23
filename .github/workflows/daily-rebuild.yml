@@ -127,7 +127,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add .github/game-state.json
-          git diff --staged --quiet || git commit -m "chore(watch): update game state $(date -u +%F)"
-          git push origin main
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(watch): update game state $(date -u +%F)"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No change in game-state.json. Nothing to commit."
+          fi
