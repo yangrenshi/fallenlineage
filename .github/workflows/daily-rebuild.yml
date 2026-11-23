@@ -2,12 +2,13 @@ name: Daily Rebuild & Freshness
 
 on:
   schedule:
-    # Runs everyday at 00:10 UTC (08:10 AM Beijing Time)
+    # 每天 UTC 00:10（北京时间 08:10）触发一次自动重建与更新监控
     - cron: '10 0 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+  workflow_dispatch: # 支持手动触发测试
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   daily-rebuild:
@@ -38,3 +39,95 @@ jobs:
             git push
             echo "Ping commit pushed to main branch. Vercel deployment triggered."
           fi
+
+  watch-game-update:
+    name: Watch Roblox Game Updates
+    needs: daily-rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Roblox game stats
+        run: |
+          UA="fallenlineage-watcher/1.0 (+https://fallenlineage.org)"
+          for i in 1 2 3; do
+            echo "Attempt $i: Querying Roblox Game API..."
+            if curl -sS -H "User-Agent: $UA" \
+              "https://games.roblox.com/v1/games?universeIds=10771769549" -o game.json; then
+              if grep -q '"data"' game.json; then
+                echo "Successfully fetched Roblox stats."
+                cat game.json | head -c 300
+                echo ""
+                break
+              fi
+            fi
+            echo "Failed or rate limited, sleeping 20s before retry..."
+            sleep 20
+          done
+
+      - name: Compare with last state and notify
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let raw = '';
+            try { raw = fs.readFileSync('game.json', 'utf8'); } catch(e) {}
+            let json = null;
+            try { json = JSON.parse(raw); } catch(e) {}
+
+            if (!json || !json.data || !json.data.length) {
+              console.log('No valid game data returned:', raw);
+              return;
+            }
+
+            const d = json.data[0];
+            const now = { updated: d.updated, visits: d.visits, playing: d.playing };
+            let prev = {};
+            try { prev = JSON.parse(fs.readFileSync('.github/game-state.json', 'utf8')); } catch(e) {}
+
+            const lines = [];
+            if (prev.updated && prev.updated !== now.updated) {
+              lines.push(`- **游戏最后更新时间**：${prev.updated} → **${now.updated}**`);
+            }
+            if (prev.visits && now.visits - prev.visits > 0) {
+              lines.push(`- **总访问量增长**：+${(now.visits - prev.visits).toLocaleString()}（累计 ${now.visits.toLocaleString()}）`);
+            }
+
+            if (lines.length) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨【Fallen Lineage 游戏可能更新了】· ${now.updated.slice(0, 10)}`,
+                assignees: [context.repo.owner],
+                body: [
+                  `Hi @${context.repo.owner}（通知将直接推送至你的 GitHub 绑定邮箱 3171668917@qq.com）：`,
+                  '',
+                  '### 🎮 检测到游戏数据发生变更',
+                  ...lines,
+                  '',
+                  '### 📋 建议处理步骤',
+                  '- [ ] 访问 Roblox 游戏主页 / 官方 Discord 公告频道，确认本次是否包含新兑换码或职业平衡补丁',
+                  '- [ ] 若有新码或机制调整：更新 `/codes` 码表或 `/tier-list`；若仅是底层 bugfix 无新码，保持页面冻结',
+                  '- [ ] 同步在 `/updates` 页面追加更新补丁记录',
+                  '',
+                  `> 📊 当前在线人数：**${now.playing}** 人 | 当前累计访问：**${now.visits.toLocaleString()}** 次`,
+                  `> 🔗 游戏 Universe ID: [10771769549](https://www.roblox.com/games/107948734900810)`
+                ].join('\n')
+              });
+              console.log('GitHub Issue created successfully for update notification.');
+            } else {
+              console.log('No update detected compared to baseline.');
+            }
+
+            fs.mkdirSync('.github', { recursive: true });
+            fs.writeFileSync('.github/game-state.json', JSON.stringify(now, null, 2));
+
+      - name: Commit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+          git add .github/game-state.json
+          git diff --staged --quiet || git commit -m "chore(watch): update game state $(date -u +%F)"
+          git push origin main
