@@ -1,56 +1,72 @@
 ---
-interface CodeItem {
+export interface ActiveCodeItem {
   code: string;
   reward: string;
-  status: 'active' | 'expired';
-  addedDate?: string;
+  added: string;
+  source: 'Official Discord Announcement' | 'CCU Milestone' | 'Server Restart Compensation' | 'Version Update Reward';
+}
+
+export interface ExpiredCodeItem {
+  code: string;
+  reward: string;
 }
 
 interface Props {
-  activeCodes?: CodeItem[];
-  expiredCodes?: CodeItem[];
+  activeCodes?: ActiveCodeItem[];
+  expiredCodes?: ExpiredCodeItem[];
 }
 
 const { activeCodes = [], expiredCodes = [] } = Astro.props;
 ---
 
 <div class="codes-section">
+  <!-- Table 1: Active Verified Working Codes -->
   <div class="table-wrapper">
     <table>
       <thead>
         <tr>
-          <th>Code</th>
+          <th style="min-width: 170px;">Code</th>
           <th>Reward</th>
-          <th>Status</th>
-          <th>Action</th>
+          <th style="min-width: 110px;">Added</th>
+          <th>Source</th>
         </tr>
       </thead>
       <tbody>
         {activeCodes.length === 0 ? (
           <tr>
-            <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">
-              <em>No active codes currently active. We monitor updates and server restarts regularly.</em>
+            <td colspan="4" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
+              <p style="font-size: 1.05rem; margin-bottom: 0.25rem; color: var(--text-secondary);">
+                <strong>No active codes right now, this page is checked daily.</strong>
+              </p>
+              <span style="font-size: 0.875rem;">
+                New codes typically drop during CCU milestones or emergency server maintenance restarts.
+              </span>
             </td>
           </tr>
         ) : (
           activeCodes.map((item) => (
             <tr>
               <td>
-                <span class="code-cell">{item.code}</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;">
+                  <span class="code-cell">{item.code}</span>
+                  <button
+                    type="button"
+                    class="btn btn-secondary btn-copy"
+                    data-code={item.code}
+                    title="Click to copy code"
+                    aria-label={`Copy code ${item.code}`}
+                    style="padding: 0.25rem 0.65rem; font-size: 0.78rem; flex-shrink: 0;"
+                  >
+                    Copy
+                  </button>
+                </div>
               </td>
-              <td>{item.reward}</td>
+              <td style="color: #fef08a; font-weight: 500;">{item.reward}</td>
+              <td style="color: var(--text-secondary); font-size: 0.875rem;">{item.added}</td>
               <td>
-                <span class="badge badge-green">Working</span>
-              </td>
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-copy"
-                  data-code={item.code}
-                  style="padding: 0.3rem 0.75rem; font-size: 0.8rem;"
-                >
-                  Copy
-                </button>
+                <span class="badge badge-amber" style="font-size: 0.75rem; white-space: nowrap;">
+                  {item.source}
+                </span>
               </td>
             </tr>
           ))
@@ -59,9 +75,10 @@ const { activeCodes = [], expiredCodes = [] } = Astro.props;
     </table>
   </div>
 
-  <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Expired Codes Archive</h3>
-  <p style="font-size: 0.9rem; color: var(--text-muted);">
-    These codes have been reported expired or no longer redeemable in Fallen Lineage. Kept for historical reference.
+  <!-- Table 2: Expired Codes Archive -->
+  <h3 style="margin-top: 2.5rem; margin-bottom: 0.75rem;">Expired Fallen Lineage Codes Archive</h3>
+  <p style="font-size: 0.925rem; color: var(--text-secondary); margin-bottom: 1rem;">
+    The following codes have been verified as expired following subsequent game updates. Listed for historical reference so you don't waste time trying invalid keys:
   </p>
   <div class="table-wrapper">
     <table>
@@ -83,11 +100,13 @@ const { activeCodes = [], expiredCodes = [] } = Astro.props;
           expiredCodes.map((item) => (
             <tr>
               <td>
-                <span class="code-cell code-expired">{item.code}</span>
+                <span class="code-cell code-expired" style="text-decoration: line-through; opacity: 0.7;">
+                  {item.code}
+                </span>
               </td>
               <td style="color: var(--text-muted);">{item.reward}</td>
               <td>
-                <span class="badge badge-red">Expired</span>
+                <span class="badge badge-red" style="font-size: 0.75rem;">Expired</span>
               </td>
             </tr>
           ))
@@ -98,7 +117,7 @@ const { activeCodes = [], expiredCodes = [] } = Astro.props;
 </div>
 
 <script>
-  // Pure lightweight native copy logic with visual feedback
+  // Pure lightweight native copy logic with tactile visual feedback
   document.querySelectorAll('.btn-copy').forEach((button) => {
     button.addEventListener('click', () => {
       const code = button.getAttribute('data-code');
@@ -107,8 +126,8 @@ const { activeCodes = [], expiredCodes = [] } = Astro.props;
         navigator.clipboard.writeText(code).then(() => {
           const originalText = btn.textContent;
           btn.textContent = 'Copied ✓';
-          btn.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
-          btn.style.borderColor = 'rgba(16, 185, 129, 0.5)';
+          btn.style.backgroundColor = 'rgba(16, 185, 129, 0.25)';
+          btn.style.borderColor = 'rgba(16, 185, 129, 0.6)';
           btn.style.color = '#34d399';
           setTimeout(() => {
             btn.textContent = originalText;

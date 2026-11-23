@@ -20,8 +20,11 @@ const {
   type = 'article',
   datePublished = '2026-11-16T10:40:00Z',
   dateModified = '2026-11-16T10:40:00Z',
-  siblingLinks = []
+  siblingLinks = [],
+  extraSchemas = []
 } = Astro.props;
+
+const extraSchemasList = Array.isArray(extraSchemas) ? extraSchemas : (extraSchemas ? [extraSchemas] : []);
 
 const pathname = Astro.url.pathname;
 const cleanPath = pathname === '/' ? '' : pathname.replace(/\/+$/, '');
@@ -92,6 +95,9 @@ const schemaData = isHome
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    {extraSchemasList.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
     <!-- Umami 自建流量统计（2KB 极轻量、免 Cookie、抗拦截） -->
     {(import.meta.env.PUBLIC_UMAMI_WEBSITE_ID || process.env.PUBLIC_UMAMI_WEBSITE_ID) && (
       <script
