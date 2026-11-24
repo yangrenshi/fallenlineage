@@ -70,10 +70,13 @@ jobs:
         uses: actions/github-script@v7
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
         with:
           script: |
             const fs = require('fs');
             const https = require('https');
+            const crypto = require('crypto');
             let raw = '';
             try { raw = fs.readFileSync('game.json', 'utf8'); } catch(e) {}
             let json = null;
@@ -98,14 +101,16 @@ jobs:
             }
 
             if (lines.length) {
+              const alertTitle = `🚨【Fallen Lineage 游戏更新提醒】· ${now.updated.slice(0, 10)}`;
+
               // 1. 创建 GitHub Issue 存档
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: `🚨【Fallen Lineage 游戏可能更新了】· ${now.updated.slice(0, 10)}`,
+                title: alertTitle,
                 assignees: [context.repo.owner],
                 body: [
-                  `Hi @${context.repo.owner}（通知将直接推送至你的 QQ 邮箱 3171668917@qq.com）：`,
+                  `Hi @${context.repo.owner}：`,
                   '',
                   '### 🎮 检测到游戏数据发生变更',
                   ...lines,
@@ -121,13 +126,100 @@ jobs:
               });
               console.log('GitHub Issue created successfully.');
 
-              // 2. 直投 QQ 邮箱 (通过 Brevo SMTP API，不依赖脆弱的 Issue 邮件转发)
+              // 2. 飞书自定义机器人 Webhook 通知（秒级触达手机与电脑）
+              const feishuUrl = process.env.FEISHU_WEBHOOK_URL;
+              const feishuSecret = process.env.FEISHU_SECRET;
+              if (feishuUrl) {
+                const timestamp = Math.floor(Date.now() / 1000);
+                const feishuPayload = {
+                  msg_type: "interactive",
+                  card: {
+                    header: {
+                      title: {
+                        tag: "plain_text",
+                        content: alertTitle
+                      },
+                      template: "orange"
+                    },
+                    elements: [
+                      {
+                        tag: "div",
+                        text: {
+                          tag: "lark_md",
+                          content: `**🎮 检测到 Roblox 游戏数据发生变更：**\n${lines.join('\n')}\n\n📊 **当前状态快照：**\n- 在线人数：**${now.playing}** 人\n- 累计访问：**${now.visits.toLocaleString()}** 次\n- 游戏 Universe ID: [10771769549](https://www.roblox.com/games/107948734900810)`
+                        }
+                      },
+                      {
+                        tag: "hr"
+                      },
+                      {
+                        tag: "div",
+                        text: {
+                          tag: "lark_md",
+                          content: "**💡 建议处理动作：**\n1. 访问 Roblox 游戏主页 / 官方 Discord，核对是否有新兑换码或职业平衡补丁\n2. 若有新码：向 AI 发送日常维护指令更新 `/codes` 码表；若无新码：继续保持页面稳定\n3. 顺手同步更新 `/updates` 的更新日志"
+                        }
+                      },
+                      {
+                        tag: "action",
+                        actions: [
+                          {
+                            tag: "button",
+                            text: {
+                              tag: "plain_text",
+                              content: "查看 Fallen Lineage Codes 页面"
+                            },
+                            type: "primary",
+                            url: "https://fallenlineage.org/codes"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                };
+
+                if (feishuSecret) {
+                  const stringToSign = `${timestamp}\n${feishuSecret}`;
+                  const sign = crypto.createHmac('sha256', stringToSign).update('').digest('base64');
+                  feishuPayload.timestamp = timestamp.toString();
+                  feishuPayload.sign = sign;
+                }
+
+                await new Promise((resolve) => {
+                  try {
+                    const parsedUrl = new URL(feishuUrl);
+                    const req = https.request({
+                      hostname: parsedUrl.hostname,
+                      path: parsedUrl.pathname + parsedUrl.search,
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' }
+                    }, (res) => {
+                      let data = '';
+                      res.on('data', chunk => data += chunk);
+                      res.on('end', () => {
+                        console.log('Feishu notification sent, status:', res.statusCode, data);
+                        resolve();
+                      });
+                    });
+                    req.on('error', (err) => {
+                      console.error('Failed to send Feishu notification:', err);
+                      resolve();
+                    });
+                    req.write(JSON.stringify(feishuPayload));
+                    req.end();
+                  } catch(e) {
+                    console.error('Feishu URL parsing error:', e);
+                    resolve();
+                  }
+                });
+              }
+
+              // 3. 直投 QQ 邮箱 (通过 Brevo SMTP API，双重备份)
               const apiKey = process.env.BREVO_API_KEY;
               if (apiKey) {
                 const emailPayload = JSON.stringify({
                   sender: { name: 'Fallen Lineage Monitor', email: 'support@fallenlineage.org' },
                   to: [{ email: '3171668917@qq.com', name: 'yangrenshi' }],
-                  subject: `🚨【Fallen Lineage 游戏可能更新了】· ${now.updated.slice(0, 10)}`,
+                  subject: alertTitle,
                   htmlContent: `
                     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #121723; color: #f1f5f9; border-radius: 8px; border: 1px solid #262e45;">
                       <h2 style="color: #fbbf24; margin-top: 0;">🚨 Fallen Lineage 游戏检测到重大更新</h2>
