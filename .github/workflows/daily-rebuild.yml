@@ -2,8 +2,8 @@ name: Daily Rebuild & Freshness
 
 on:
   schedule:
-    # 每天 UTC 00:10（北京时间 08:10）触发一次自动重建与更新监控
-    - cron: '10 0 * * *'
+    # 每天 UTC 00:23（北京时间 08:23）触发一次自动重建与更新监控（避开 00:00~00:15 的高峰排队丢单）
+    - cron: '23 0 * * *'
   workflow_dispatch: # 支持手动触发测试
 
 permissions:
@@ -68,9 +68,12 @@ jobs:
 
       - name: Compare with last state and notify
         uses: actions/github-script@v7
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
         with:
           script: |
             const fs = require('fs');
+            const https = require('https');
             let raw = '';
             try { raw = fs.readFileSync('game.json', 'utf8'); } catch(e) {}
             let json = null;
@@ -95,13 +98,14 @@ jobs:
             }
 
             if (lines.length) {
+              // 1. 创建 GitHub Issue 存档
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 title: `🚨【Fallen Lineage 游戏可能更新了】· ${now.updated.slice(0, 10)}`,
                 assignees: [context.repo.owner],
                 body: [
-                  `Hi @${context.repo.owner}（通知将直接推送至你的 GitHub 绑定邮箱 3171668917@qq.com）：`,
+                  `Hi @${context.repo.owner}（通知将直接推送至你的 QQ 邮箱 3171668917@qq.com）：`,
                   '',
                   '### 🎮 检测到游戏数据发生变更',
                   ...lines,
@@ -115,7 +119,66 @@ jobs:
                   `> 🔗 游戏 Universe ID: [10771769549](https://www.roblox.com/games/107948734900810)`
                 ].join('\n')
               });
-              console.log('GitHub Issue created successfully for update notification.');
+              console.log('GitHub Issue created successfully.');
+
+              // 2. 直投 QQ 邮箱 (通过 Brevo SMTP API，不依赖脆弱的 Issue 邮件转发)
+              const apiKey = process.env.BREVO_API_KEY;
+              if (apiKey) {
+                const emailPayload = JSON.stringify({
+                  sender: { name: 'Fallen Lineage Monitor', email: 'support@fallenlineage.org' },
+                  to: [{ email: '3171668917@qq.com', name: 'yangrenshi' }],
+                  subject: `🚨【Fallen Lineage 游戏可能更新了】· ${now.updated.slice(0, 10)}`,
+                  htmlContent: `
+                    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #121723; color: #f1f5f9; border-radius: 8px; border: 1px solid #262e45;">
+                      <h2 style="color: #fbbf24; margin-top: 0;">🚨 Fallen Lineage 游戏检测到重大更新</h2>
+                      <p style="color: #94a3b8; font-size: 14px;">Roblox 官方 API 监测到以下数据变动：</p>
+                      <ul style="background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 6px; font-size: 14px; line-height: 1.8;">
+                        ${lines.map(l => `<li>${l.replace(/\*\*/g, '')}</li>`).join('')}
+                      </ul>
+                      <div style="background: #181e2e; padding: 12px 16px; border-radius: 6px; font-size: 13px; color: #cbd5e1; margin-bottom: 20px;">
+                        <p style="margin: 4px 0;">🎮 <strong>当前在线人数：</strong> ${now.playing} 人</p>
+                        <p style="margin: 4px 0;">📈 <strong>累计总访问：</strong> ${now.visits.toLocaleString()} 次</p>
+                        <p style="margin: 4px 0;">⏱️ <strong>更新时间戳：</strong> ${now.updated}</p>
+                      </div>
+                      <h3 style="color: #f8fafc; font-size: 15px; border-bottom: 1px solid #262e45; padding-bottom: 6px;">💡 建议后续动作</h3>
+                      <ol style="font-size: 13px; color: #94a3b8; line-height: 1.7; padding-left: 20px;">
+                        <li>打开 Roblox 游戏页或官方 Discord 公告频道，确认是否有新兑换码或职业平衡补丁；</li>
+                        <li>若有新码：向 AI 发送日常维护指令更新 <code>/codes</code> 码表；若无新码：继续保持页面稳定；</li>
+                        <li>顺手同步更新 <code>/updates</code> 的更新日志。</li>
+                      </ol>
+                      <div style="margin-top: 25px; text-align: center;">
+                        <a href="https://fallenlineage.org/codes" style="background: #fbbf24; color: #000; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block;">访问 /codes 页面</a>
+                      </div>
+                    </div>
+                  `
+                });
+
+                await new Promise((resolve) => {
+                  const req = https.request({
+                    hostname: 'api.brevo.com',
+                    path: '/v3/smtp/email',
+                    method: 'POST',
+                    headers: {
+                      'api-key': apiKey,
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                    }
+                  }, (res) => {
+                    let data = '';
+                    res.on('data', chunk => data += chunk);
+                    res.on('end', () => {
+                      console.log('Direct Brevo email sent successfully, HTTP status:', res.statusCode, data);
+                      resolve();
+                    });
+                  });
+                  req.on('error', (err) => {
+                    console.error('Failed to send direct Brevo email:', err);
+                    resolve();
+                  });
+                  req.write(emailPayload);
+                  req.end();
+                });
+              }
             } else {
               console.log('No update detected compared to baseline.');
             }
