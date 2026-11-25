@@ -107,10 +107,12 @@ const schemaData = isHome
       />
     )}
     <!-- PVUV.ai 流量统计（内置 Bot 识别与清洗） -->
+    <script is:inline>window.pvuv=window.pvuv||function(){(window.pvuv.q=window.pvuv.q||[]).push(arguments)}</script>
     <script
       defer
-      src="https://in.pvuv.ai/f.js"
+      src="https://www.pvuv.ai/f.js"
       data-site={import.meta.env.PUBLIC_PVUV_SITE_ID || process.env.PUBLIC_PVUV_SITE_ID || "cAowTXWz"}
+      data-api="https://in.pvuv.ai"
     ></script>
 
     <!-- Google AdSense -->
