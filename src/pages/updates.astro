@@ -11,13 +11,15 @@ const siblingLinks = [
   { title: "Community Hubs", href: "/trello", desc: "Inspect real developer channels for upcoming news." }
 ];
 
-const lastUpdatedDate = "November 16, 2026";
+const lastUpdatedDate = "November 27, 2026";
+const dateModified = "2026-11-27T11:25:00Z";
 ---
 
 <Base
   title={title}
   description={description}
   h1={h1}
+  dateModified={dateModified}
   siblingLinks={siblingLinks}
 >
   <div style="margin-bottom: 1.5rem;">
@@ -38,11 +40,46 @@ const lastUpdatedDate = "November 16, 2026";
     <div class="callout callout-info" style="margin-top: 1.5rem; padding: 2rem;">
       <h3 style="margin-top: 0; font-size: 1.25rem; color: var(--text-primary);">No Official Patch Notes Recorded Yet</h3>
       <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
-        The Fallen Lineage development team currently publishes balance tweaks and announcements directly through their <strong>official Discord server</strong> and in-game broadcasts, rather than issuing formal numbered patch notes.
+        The Fallen Lineage development team currently publishes balance tweaks and announcements directly through their <a href="https://discord.com/invite/CVXghKVQSH" target="_blank" rel="noopener noreferrer"><strong>official Discord server</strong></a> and in-game broadcasts, rather than issuing formal numbered patch notes.
       </p>
       <p style="margin-bottom: 0;">
         To avoid misinforming players with unverified patch claims, we do not log speculative version numbers. Once formal developer changelogs are published, they will be archived here chronologically.
       </p>
+    </div>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Observed Roblox Update Timeline</h2>
+    <p>
+      While formal developer changelogs remain unpublished, our automated monitor tracks official Roblox server build timestamps and milestone metrics:
+    </p>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Date &amp; Time (UTC+8)</th>
+            <th>Observed Status</th>
+            <th>Developer Changelog</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nov 27, 2026 (04:58)</strong></td>
+            <td>Game updated (2,959,604 total visits &bull; 25,229 favorites)</td>
+            <td style="color: var(--text-muted);">No changelog published by developers</td>
+          </tr>
+          <tr>
+            <td><strong>Nov 24, 2026 (04:46)</strong></td>
+            <td>Game updated on Roblox</td>
+            <td style="color: var(--text-muted);">No changelog published by developers</td>
+          </tr>
+          <tr>
+            <td><strong>Nov 23, 2026 (05:52)</strong></td>
+            <td>Game updated on Roblox</td>
+            <td style="color: var(--text-muted);">No changelog published by developers</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 

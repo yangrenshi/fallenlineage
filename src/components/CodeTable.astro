@@ -3,7 +3,13 @@ export interface ActiveCodeItem {
   code: string;
   reward: string;
   added: string;
-  source: 'Official Discord Announcement' | 'CCU Milestone' | 'Server Restart Compensation' | 'Version Update Reward';
+  source:
+    | 'Official Discord Announcement'
+    | 'CCU Milestone'
+    | 'Server Restart Compensation'
+    | 'Version Update Reward'
+    | 'Multi-Source Verified'
+    | 'Single Source (Reward Undisclosed)';
 }
 
 export interface ExpiredCodeItem {
